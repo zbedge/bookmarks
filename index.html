@@ -22,6 +22,13 @@
       --green-accent: #22c55e;
       --green-glow: rgba(34, 197, 94, 0.35);
       --text-color: #e2e8f0;
+
+      /* DEFAULT BANNER THEME */
+      --banner-bg: #080203;
+      --banner-border: #4a0d17;
+      --banner-swoosh-1: rgba(220, 38, 38, 0.15);
+      --banner-swoosh-2: rgba(220, 38, 38, 0.25);
+      --banner-sub-color: #fca5a5;
     }
 
     body {
@@ -43,13 +50,13 @@
       padding: 0 1rem;
     }
 
-    /* ROUNDED BOX BANNER WITH SWOOSH EFFECT */
+    /* DYNAMIC ROUNDED BOX BANNER WITH SWOOSH EFFECT */
     .banner-container {
       width: 100%;
-      background: #080203;
-      border: 1px solid #4a0d17;
+      background: var(--banner-bg);
+      border: 1px solid var(--banner-border);
       border-radius: 16px;
-      padding: 2rem 1.5rem;
+      padding: 1.8rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -57,6 +64,7 @@
       overflow: hidden;
       box-shadow: 0 8px 30px rgba(0,0,0,0.8);
       margin: 1.5rem 0 1rem 0;
+      transition: all 0.4s ease;
     }
 
     .banner-container::before {
@@ -69,9 +77,9 @@
       background: linear-gradient(
         90deg, 
         transparent 0%, 
-        rgba(220, 38, 38, 0.15) 30%, 
+        var(--banner-swoosh-1) 30%, 
         rgba(0, 0, 0, 0.8) 50%, 
-        rgba(220, 38, 38, 0.2) 70%, 
+        var(--banner-swoosh-2) 70%, 
         transparent 100%
       );
       animation: swoosh 6s infinite ease-in-out;
@@ -91,21 +99,22 @@
     }
 
     .banner-title {
-      font-size: 2.2rem;
+      font-size: 1.4rem;
       font-weight: 300;
-      color: #ffffff;
-      letter-spacing: 6px;
+      color: #94a3b8;
+      letter-spacing: 4px;
       text-transform: uppercase;
-      text-shadow: 0 0 15px rgba(220, 38, 38, 0.4), 0 0 30px rgba(0, 0, 0, 0.9);
+      margin-bottom: 0.2rem;
     }
 
     .banner-subtitle {
-      font-size: 0.78rem;
-      font-weight: 400;
-      letter-spacing: 2.5px;
-      color: #991b1b;
+      font-size: 1.6rem; /* Much bigger & prominent! */
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--banner-sub-color);
       text-transform: uppercase;
-      margin-top: 0.4rem;
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+      transition: color 0.4s ease;
     }
 
     /* HEADER BAR FOR 3-BAR MENU */
@@ -309,16 +318,8 @@
     }
 
     /* SPECIAL MAIN BUTTONS */
-    .card.brand-trigger {
-      border-color: #854d0e;
-      color: #facc15;
-    }
-    .card.brand-trigger:hover {
-      border-color: #eab308;
-      box-shadow: 0 0 15px rgba(234, 179, 8, 0.4);
-      background: #1c1300;
-      color: #ffffff;
-    }
+    .card.brand-trigger { border-color: #854d0e; color: #facc15; }
+    .card.brand-trigger:hover { border-color: #eab308; box-shadow: 0 0 15px rgba(234, 179, 8, 0.4); background: #1c1300; color: #ffffff; }
 
     .card.edge-trigger { border-color: #14532d; color: #86efac; }
     .card.edge-trigger:hover { border-color: var(--green-accent); color: #ffffff; box-shadow: 0 0 12px var(--green-glow); background: #042110; }
@@ -327,27 +328,11 @@
     .card.apex-trigger:hover { border-color: #ef4444; color: #ffffff; box-shadow: 0 0 12px var(--red-glow); background: #1f070a; }
 
     /* CONTENT CHECK BUTTONS */
-    .card.content-red {
-      border-color: #991b1b;
-      color: #fca5a5;
-    }
-    .card.content-red:hover {
-      border-color: #ef4444;
-      box-shadow: 0 0 18px rgba(239, 68, 68, 0.5);
-      background: #28060a;
-      color: #ffffff;
-    }
+    .card.content-red { border-color: #991b1b; color: #fca5a5; }
+    .card.content-red:hover { border-color: #ef4444; box-shadow: 0 0 18px rgba(239, 68, 68, 0.5); background: #28060a; color: #ffffff; }
 
-    .card.content-green {
-      border-color: #166534;
-      color: #86efac;
-    }
-    .card.content-green:hover {
-      border-color: #22c55e;
-      box-shadow: 0 0 18px rgba(34, 197, 94, 0.5);
-      background: #062b14;
-      color: #ffffff;
-    }
+    .card.content-green { border-color: #166534; color: #86efac; }
+    .card.content-green:hover { border-color: #22c55e; box-shadow: 0 0 18px rgba(34, 197, 94, 0.5); background: #062b14; color: #ffffff; }
 
     /* BRAND SPECIFIC STYLES */
     .brand-qbet { border-color: #166534; color: #4ade80; }
@@ -362,109 +347,25 @@
     .brand-gqbet { border-color: #854d0e; color: #facc15; background: #050300; }
     .brand-gqbet:hover { border-color: #eab308; box-shadow: 0 0 15px rgba(234, 179, 8, 0.4); background: #1c1300; color: #ffffff; }
 
-    /* 7ABET: GREEN & GOLDEN YELLOW GLOW */
-    .brand-7abet {
-      border-color: #ca8a04;
-      background: linear-gradient(135deg, #052e16 0%, #021a0c 100%);
-      color: #facc15;
-      font-weight: 600;
-    }
-    .brand-7abet:hover {
-      border-color: #eab308;
-      box-shadow: 0 0 15px rgba(234, 179, 8, 0.5), 0 0 25px rgba(34, 197, 94, 0.3);
-      background: #0b4522;
-      color: #ffffff;
-    }
+    .brand-7abet { border-color: #ca8a04; background: linear-gradient(135deg, #052e16 0%, #021a0c 100%); color: #facc15; font-weight: 600; }
+    .brand-7abet:hover { border-color: #eab308; box-shadow: 0 0 15px rgba(234, 179, 8, 0.5), 0 0 25px rgba(34, 197, 94, 0.3); background: #0b4522; color: #ffffff; }
 
-    /* BVBET: BLACK & GOLDEN YELLOW GLOW */
-    .brand-bvbet {
-      border-color: #a16207;
-      background: #050505;
-      color: #facc15;
-      font-weight: 600;
-    }
-    .brand-bvbet:hover {
-      border-color: #eab308;
-      box-shadow: 0 0 18px rgba(234, 179, 8, 0.6);
-      background: #141103;
-      color: #ffffff;
-    }
+    .brand-bvbet { border-color: #a16207; background: #050505; color: #facc15; font-weight: 600; }
+    .brand-bvbet:hover { border-color: #eab308; box-shadow: 0 0 18px rgba(234, 179, 8, 0.6); background: #141103; color: #ffffff; }
 
-    /* 55BET: SPARKLY RED & WHITE */
-    .brand-55bet {
-      border-color: #ef4444;
-      background: linear-gradient(135deg, #2b0407 0%, #0a0203 100%);
-      color: #ffffff;
-      font-weight: 600;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
-    }
-    .brand-55bet::after {
-      content: "✨";
-      position: absolute;
-      right: 12px;
-      top: 10px;
-      font-size: 0.9rem;
-      animation: pulseSparkle 1.5s infinite alternate;
-    }
-    .brand-55bet:hover {
-      border-color: #f87171;
-      box-shadow: 0 0 20px rgba(239, 68, 68, 0.6), 0 0 30px rgba(255, 255, 255, 0.2);
-      transform: translateY(-4px) scale(1.02);
-    }
+    .brand-55bet { border-color: #ef4444; background: linear-gradient(135deg, #2b0407 0%, #0a0203 100%); color: #ffffff; font-weight: 600; position: relative; overflow: hidden; box-shadow: 0 0 10px rgba(239, 68, 68, 0.3); }
+    .brand-55bet::after { content: "✨"; position: absolute; right: 12px; top: 10px; font-size: 0.9rem; animation: pulseSparkle 1.5s infinite alternate; }
+    .brand-55bet:hover { border-color: #f87171; box-shadow: 0 0 20px rgba(239, 68, 68, 0.6), 0 0 30px rgba(255, 255, 255, 0.2); transform: translateY(-4px) scale(1.02); }
 
-    /* HOWZIT: SPARKLY WHITE & GOLD */
-    .brand-howzit {
-      border-color: #eab308;
-      background: linear-gradient(135deg, #ffffff 0%, #fef08a 100%);
-      color: #000000;
-      font-weight: 700;
-      position: relative;
-      box-shadow: 0 0 10px rgba(234, 179, 8, 0.4);
-    }
-    .brand-howzit::after {
-      content: "✨";
-      position: absolute;
-      right: 12px;
-      top: 10px;
-      font-size: 0.9rem;
-      animation: pulseSparkle 1.5s infinite alternate;
-    }
-    .brand-howzit:hover {
-      border-color: #ca8a04;
-      box-shadow: 0 0 20px rgba(234, 179, 8, 0.8), 0 0 25px rgba(255, 255, 255, 0.8);
-      transform: translateY(-4px) scale(1.02);
-      color: #000000;
-    }
+    .brand-howzit { border-color: #eab308; background: linear-gradient(135deg, #ffffff 0%, #fef08a 100%); color: #000000; font-weight: 700; position: relative; box-shadow: 0 0 10px rgba(234, 179, 8, 0.4); }
+    .brand-howzit::after { content: "✨"; position: absolute; right: 12px; top: 10px; font-size: 0.9rem; animation: pulseSparkle 1.5s infinite alternate; }
+    .brand-howzit:hover { border-color: #ca8a04; box-shadow: 0 0 20px rgba(234, 179, 8, 0.8), 0 0 25px rgba(255, 255, 255, 0.8); transform: translateY(-4px) scale(1.02); color: #000000; }
 
-    /* IBET: RED & WHITE */
-    .brand-ibet {
-      border-color: #dc2626;
-      background: linear-gradient(135deg, #180305 0%, #0a0203 100%);
-      color: #ffffff;
-      font-weight: 600;
-    }
-    .brand-ibet:hover {
-      border-color: #ef4444;
-      box-shadow: 0 0 18px rgba(239, 68, 68, 0.5);
-      background: #250508;
-      color: #ffffff;
-    }
+    .brand-ibet { border-color: #dc2626; background: linear-gradient(135deg, #180305 0%, #0a0203 100%); color: #ffffff; font-weight: 600; }
+    .brand-ibet:hover { border-color: #ef4444; box-shadow: 0 0 18px rgba(239, 68, 68, 0.5); background: #250508; color: #ffffff; }
 
-    /* ARCTIC CASINO: ICE BLUE & SILVER WHITE */
-    .brand-arctic {
-      border-color: #38bdf8;
-      background: linear-gradient(135deg, #031525 0%, #080f18 100%);
-      color: #f1f5f9;
-      font-weight: 500;
-    }
-    .brand-arctic:hover {
-      border-color: #7dd3fc;
-      box-shadow: 0 0 18px rgba(56, 189, 248, 0.5);
-      background: #07233b;
-      color: #ffffff;
-    }
+    .brand-arctic { border-color: #38bdf8; background: linear-gradient(135deg, #031525 0%, #080f18 100%); color: #f1f5f9; font-weight: 500; }
+    .brand-arctic:hover { border-color: #7dd3fc; box-shadow: 0 0 18px rgba(56, 189, 248, 0.5); background: #07233b; color: #ffffff; }
 
     @keyframes pulseSparkle {
       0% { opacity: 0.3; transform: scale(0.8); }
@@ -519,9 +420,9 @@
   <div class="container">
 
     <!-- ROUNDED BANNER -->
-    <div class="banner-container">
+    <div class="banner-container" id="bannerBox">
       <div class="banner-content">
-        <h1 class="banner-title">CRM</h1>
+        <div class="banner-title">CRM</div>
         <div class="banner-subtitle" id="bannerSubtitle">Brand & Operations Portal</div>
       </div>
     </div>
@@ -691,24 +592,24 @@
       container.style.display = container.style.display === "block" ? "none" : "block";
     }
 
-    const subtitles = {
-      'mainView': 'Brand & Operations Portal',
-      'brandsView': 'All Brands Hub',
-      'brandQbetView': 'Qbet Workspace',
-      'brandMangaView': 'Manga Casino Workspace',
-      'brand30betView': '30bet Workspace',
-      'brandGqbetView': 'GQbet Workspace',
-      'brand55betView': '55bet Workspace',
-      'brandHowzitView': 'Howzit Workspace',
-      'brand7abetView': '7Abet Workspace',
-      'brandBvbetView': 'BVBet Workspace',
-      'brandIbetView': 'iBet Workspace',
-      'brandArcticView': 'Arctic Casino Workspace',
-      'edgeView': 'EDGE Admin Portals',
-      'apexView': 'APEX Admin Portals',
-      'casinoView': 'Casino Operations & Setup',
-      'crmToolsView': 'CRM Workspace & Planning',
-      'contentCheckView': 'Content Check Verification'
+    const viewConfigs = {
+      'mainView': { title: 'Brand & Operations Portal', bg: '#080203', border: '#4a0d17', swoosh1: 'rgba(220, 38, 38, 0.15)', swoosh2: 'rgba(220, 38, 38, 0.25)', color: '#fca5a5' },
+      'brandsView': { title: 'All Brands Hub', bg: '#1c1300', border: '#854d0e', swoosh1: 'rgba(234, 179, 8, 0.2)', swoosh2: 'rgba(234, 179, 8, 0.3)', color: '#facc15' },
+      'brandQbetView': { title: 'Qbet Workspace', bg: '#052e16', border: '#166534', swoosh1: 'rgba(34, 197, 94, 0.2)', swoosh2: 'rgba(34, 197, 94, 0.35)', color: '#4ade80' },
+      'brandMangaView': { title: 'Manga Casino Workspace', bg: '#1e293b', border: '#64748b', swoosh1: 'rgba(255, 255, 255, 0.15)', swoosh2: 'rgba(255, 255, 255, 0.25)', color: '#f8fafc' },
+      'brand30betView': { title: '30bet Workspace', bg: '#0f172a', border: '#1e40af', swoosh1: 'rgba(59, 130, 246, 0.2)', swoosh2: 'rgba(59, 130, 246, 0.35)', color: '#60a5fa' },
+      'brandGqbetView': { title: 'GQbet Workspace', bg: '#140e01', border: '#854d0e', swoosh1: 'rgba(234, 179, 8, 0.2)', swoosh2: 'rgba(234, 179, 8, 0.35)', color: '#facc15' },
+      'brand55betView': { title: '55bet Workspace', bg: '#2b0407', border: '#ef4444', swoosh1: 'rgba(239, 68, 68, 0.25)', swoosh2: 'rgba(255, 255, 255, 0.3)', color: '#ffffff' },
+      'brandHowzitView': { title: 'Howzit Workspace', bg: '#3a3000', border: '#ca8a04', swoosh1: 'rgba(254, 240, 138, 0.3)', swoosh2: 'rgba(255, 255, 255, 0.4)', color: '#fef08a' },
+      'brand7abetView': { title: '7Abet Workspace', bg: '#0b4522', border: '#ca8a04', swoosh1: 'rgba(234, 179, 8, 0.25)', swoosh2: 'rgba(34, 197, 94, 0.35)', color: '#facc15' },
+      'brandBvbetView': { title: 'BVBet Workspace', bg: '#141103', border: '#a16207', swoosh1: 'rgba(234, 179, 8, 0.25)', swoosh2: 'rgba(234, 179, 8, 0.4)', color: '#facc15' },
+      'brandIbetView': { title: 'iBet Workspace', bg: '#250508', border: '#dc2626', swoosh1: 'rgba(239, 68, 68, 0.25)', swoosh2: 'rgba(255, 255, 255, 0.25)', color: '#ffffff' },
+      'brandArcticView': { title: 'Arctic Casino Workspace', bg: '#07233b', border: '#38bdf8', swoosh1: 'rgba(56, 189, 248, 0.25)', swoosh2: 'rgba(241, 245, 249, 0.35)', color: '#f1f5f9' },
+      'edgeView': { title: 'EDGE Admin Portals', bg: '#042110', border: '#14532d', swoosh1: 'rgba(34, 197, 94, 0.2)', swoosh2: 'rgba(34, 197, 94, 0.3)', color: '#86efac' },
+      'apexView': { title: 'APEX Admin Portals', bg: '#1f070a', border: '#7f1d1d', swoosh1: 'rgba(239, 68, 68, 0.2)', swoosh2: 'rgba(239, 68, 68, 0.3)', color: '#fca5a5' },
+      'casinoView': { title: 'Casino Operations & Setup', bg: '#0d0714', border: '#581c87', swoosh1: 'rgba(168, 85, 247, 0.2)', swoosh2: 'rgba(168, 85, 247, 0.3)', color: '#c084fc' },
+      'crmToolsView': { title: 'CRM Workspace & Planning', bg: '#080203', border: '#4a0d17', swoosh1: 'rgba(220, 38, 38, 0.15)', swoosh2: 'rgba(220, 38, 38, 0.25)', color: '#fca5a5' },
+      'contentCheckView': { title: 'Content Check Verification', bg: '#1a0507', border: '#991b1b', swoosh1: 'rgba(239, 68, 68, 0.2)', swoosh2: 'rgba(34, 197, 94, 0.2)', color: '#fca5a5' }
     };
 
     function showView(viewId) {
@@ -720,7 +621,18 @@
       }
 
       document.getElementById('backBtn').style.display = viewId === 'mainView' ? 'none' : 'block';
-      document.getElementById('bannerSubtitle').innerText = subtitles[viewId] || 'Brand & Operations Portal';
+
+      // Update Banner Colors & Title dynamically
+      const cfg = viewConfigs[viewId] || viewConfigs['mainView'];
+      const root = document.documentElement;
+
+      root.style.setProperty('--banner-bg', cfg.bg);
+      root.style.setProperty('--banner-border', cfg.border);
+      root.style.setProperty('--banner-swoosh-1', cfg.swoosh1);
+      root.style.setProperty('--banner-swoosh-2', cfg.swoosh2);
+      root.style.setProperty('--banner-sub-color', cfg.color);
+
+      document.getElementById('bannerSubtitle').innerText = cfg.title;
     }
 
     function goBack() {
