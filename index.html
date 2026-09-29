@@ -4,20 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CRM Dashboard</title>
+  <!-- Sleek Modern Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
   <style>
     /* RESET & CORE VARIABLES */
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
     
     :root {
       --bg-main: #0a0203;
-      --card-bg: #140507;
-      --card-border: #4a0e17;
+      --card-bg: #120406;
+      --card-border: #3b0a11;
       --red-accent: #dc2626;
-      --red-glow: rgba(220, 38, 38, 0.4);
-      --red-bright-glow: rgba(239, 68, 68, 0.7);
+      --red-glow: rgba(220, 38, 38, 0.35);
+      --red-bright-glow: rgba(239, 68, 68, 0.5);
       --green-accent: #22c55e;
-      --green-glow: rgba(34, 197, 94, 0.4);
-      --text-color: #fecdd3;
+      --green-glow: rgba(34, 197, 94, 0.35);
+      --text-color: #e2e8f0;
     }
 
     body {
@@ -27,9 +32,24 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 2rem 1rem;
-      background-image: radial-gradient(circle at 50% 20%, #2a080c 0%, #0a0203 70%);
+      padding-bottom: 3rem;
+      background-image: radial-gradient(circle at 50% 15%, #220609 0%, #0a0203 75%);
       background-attachment: fixed;
+    }
+
+    /* TOP ANNOUNCEMENT BANNER */
+    .top-banner {
+      width: 100%;
+      background: linear-gradient(90deg, #180305 0%, #3b0a11 50%, #180305 100%);
+      border-bottom: 1px solid #5c0f1b;
+      padding: 0.55rem 1rem;
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      color: #fca5a5;
+      text-transform: uppercase;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
 
     /* TOP HEADER & HAMBURGER MENU */
@@ -39,37 +59,39 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 2.5rem;
-      padding: 0.5rem 0;
+      margin: 2rem 0 2.5rem 0;
+      padding: 0 1rem 0.8rem 1rem;
       border-bottom: 1px solid var(--card-border);
     }
 
     .menu-toggle {
       background: transparent;
-      border: 1px solid var(--card-border);
+      border: 1px solid #7f1d1d;
       color: #ef4444;
-      font-size: 1.5rem;
-      padding: 0.4rem 0.8rem;
-      border-radius: 8px;
+      font-size: 1.1rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: 4px; /* Sleek boxy style */
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
       display: flex;
       align-items: center;
       justify-content: center;
+      letter-spacing: -1px;
     }
 
     .menu-toggle:hover {
       background: #2a080c;
-      box-shadow: 0 0 10px var(--red-glow);
+      border-color: #dc2626;
+      box-shadow: 0 0 8px var(--red-glow);
     }
 
     .header-title {
-      font-size: 2rem;
-      font-weight: 800;
+      font-size: 1.5rem;
+      font-weight: 300; /* Slimmer, toned down */
       color: #ffffff;
-      letter-spacing: 2px;
+      letter-spacing: 4px;
       text-transform: uppercase;
-      text-shadow: 0 0 12px var(--red-bright-glow), 0 0 20px rgba(220, 38, 38, 0.3);
+      text-shadow: 0 0 10px var(--red-glow);
     }
 
     .header-placeholder { width: 45px; } /* Balances header centering */
@@ -89,9 +111,7 @@
       padding: 2rem 1.5rem;
     }
 
-    .sidebar.open {
-      left: 0;
-    }
+    .sidebar.open { left: 0; }
 
     .sidebar-header {
       display: flex;
@@ -104,29 +124,31 @@
 
     .sidebar-title {
       color: #ef4444;
-      font-size: 1.2rem;
-      font-weight: 700;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 1px;
     }
 
     .close-btn {
       background: none;
       border: none;
       color: #991b1b;
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       cursor: pointer;
     }
 
     .close-btn:hover { color: #ef4444; }
 
     .sidebar-menu { list-style: none; }
-    .sidebar-menu li { margin-bottom: 1rem; }
+    .sidebar-menu li { margin-bottom: 0.8rem; }
     .sidebar-menu a {
       color: #fca5a5;
       text-decoration: none;
-      font-size: 1rem;
+      font-size: 0.9rem;
+      font-weight: 300;
       display: block;
-      padding: 0.5rem 0.8rem;
-      border-radius: 6px;
+      padding: 0.6rem 0.8rem;
+      border-radius: 4px;
       transition: background 0.2s;
     }
     .sidebar-menu a:hover {
@@ -141,7 +163,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.75);
       display: none;
       z-index: 99;
     }
@@ -151,43 +173,45 @@
     .container {
       max-width: 900px;
       width: 100%;
+      padding: 0 1rem;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.2rem;
     }
 
-    /* LINK BUTTON / CARD STYLES */
+    /* LINK BUTTON STYLES */
     .card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 1.25rem;
+      border-radius: 6px;
+      padding: 1.2rem;
       text-decoration: none;
-      color: #fca5a5;
-      font-weight: 700;
-      font-size: 1.05rem;
+      color: #cbd5e1;
+      font-weight: 400; /* Slim, clean typography */
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
       display: flex;
       align-items: center;
-      gap: 0.8rem;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      position: relative;
-      overflow: hidden;
+      justify-content: center;
+      text-align: center;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      min-height: 75px;
     }
 
     /* DEFAULT RED GLOW HOVER */
     .card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-3px);
       border-color: var(--red-accent);
       color: #ffffff;
-      box-shadow: 0 0 15px var(--red-glow), 0 0 30px rgba(220, 38, 38, 0.2);
-      background: #1f070a;
+      box-shadow: 0 0 12px var(--red-glow), 0 0 25px rgba(220, 38, 38, 0.15);
+      background: #1a0507;
     }
 
-    /* SPECIAL GREEN ADMIN BUTTON GLOW */
+    /* GREEN ADMIN BUTTON GLOW */
     .card.green-admin {
       border-color: #14532d;
       color: #86efac;
@@ -195,29 +219,30 @@
     .card.green-admin:hover {
       border-color: var(--green-accent);
       color: #ffffff;
-      box-shadow: 0 0 15px var(--green-glow), 0 0 30px rgba(34, 197, 94, 0.2);
-      background: #052e16;
-    }
-
-    .icon {
-      font-size: 1.4rem;
+      box-shadow: 0 0 12px var(--green-glow), 0 0 25px rgba(34, 197, 94, 0.15);
+      background: #042110;
     }
   </style>
 </head>
 <body>
 
+  <!-- TOP BANNER -->
+  <div class="top-banner">
+    CRM Control Dashboard
+  </div>
+
   <!-- SIDEBAR & OVERLAY -->
   <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
   <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
-      <span class="sidebar-title">Menu & Extra Tools</span>
+      <span class="sidebar-title">Menu & Settings</span>
       <button class="close-btn" onclick="toggleMenu()">&times;</button>
     </div>
     <ul class="sidebar-menu">
-      <li><a href="#">📌 Main Dashboard</a></li>
-      <li><a href="https://admin.edgegaming.io/admin/qbet/homepage" target="_blank">🟢 Green Admin</a></li>
-      <li><a href="https://admin.apexplatform.io/login" target="_blank">🔴 Red Admin</a></li>
-      <li><a href="https://ibet.atlassian.net/jira/core/projects/CAM/calendar" target="_blank">📅 Jira Calendar</a></li>
+      <li><a href="#">Main Dashboard</a></li>
+      <li><a href="https://admin.edgegaming.io/admin/qbet/homepage" target="_blank">Green Admin</a></li>
+      <li><a href="https://admin.apexplatform.io/login" target="_blank">Red Admin</a></li>
+      <li><a href="https://ibet.atlassian.net/jira/core/projects/CAM/calendar" target="_blank">Jira Calendar</a></li>
     </ul>
   </div>
 
@@ -236,37 +261,31 @@
       
       <!-- 1. GREEN ADMIN -->
       <a href="https://admin.edgegaming.io/admin/qbet/homepage" target="_blank" class="card green-admin">
-        <span class="icon">🟢</span>
         GREEN ADMIN
       </a>
 
       <!-- 2. RED ADMIN -->
       <a href="https://admin.apexplatform.io/login" target="_blank" class="card">
-        <span class="icon">🔴</span>
         RED ADMIN
       </a>
 
       <!-- 3. GAME RELEASE -->
       <a href="https://docs.google.com/spreadsheets/d/1uoTSV1EpmYpohtTDhrEYyEZDEVvEMguNdyR4qMxXuIE/edit?gid=0#gid=0" target="_blank" class="card">
-        <span class="icon">🎮</span>
         GAME RELEASE
       </a>
 
       <!-- 4. COUNTRY TESTING -->
       <a href="https://docs.google.com/spreadsheets/d/1P-UGjrhh5FRh2vuyyGQFTJuBGiXoL8Ec_KPwmhUmcqo/edit?gid=335110277#gid=335110277" target="_blank" class="card">
-        <span class="icon">🌍</span>
         COUNTRY TESTING
       </a>
 
       <!-- 5. CRM CALENDAR -->
       <a href="https://docs.google.com/spreadsheets/d/13ubzW7K15O2tr_0ORf7Q1BwqJiCOWa1f9w8DL5WH1dc/edit?gid=305835903#gid=305835903" target="_blank" class="card">
-        <span class="icon">📊</span>
         CRM CALENDAR
       </a>
 
       <!-- 6. JIRA -->
       <a href="https://ibet.atlassian.net/jira/core/projects/CAM/calendar" target="_blank" class="card">
-        <span class="icon">📅</span>
         JIRA
       </a>
 
