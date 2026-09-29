@@ -298,70 +298,44 @@
       background: #1a0507;
     }
 
-    /* MAIN GREEN ADMIN BUTTON */
-    .card.green-admin-trigger {
+    /* EDGE MAIN BUTTON */
+    .card.edge-trigger {
       border-color: #14532d;
       color: #86efac;
     }
-    .card.green-admin-trigger:hover {
+    .card.edge-trigger:hover {
       border-color: var(--green-accent);
       color: #ffffff;
       box-shadow: 0 0 12px var(--green-glow), 0 0 25px rgba(34, 197, 94, 0.15);
       background: #042110;
     }
 
-    /* CUSTOM BRAND STYLES (SUB-VIEW) */
-    
-    /* 1. QBET: GREEN */
-    .brand-qbet {
-      border-color: #166534;
-      color: #4ade80;
+    /* APEX MAIN BUTTON */
+    .card.apex-trigger {
+      border-color: #7f1d1d;
+      color: #fca5a5;
     }
-    .brand-qbet:hover {
-      border-color: #22c55e;
-      box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
-      background: #052e16;
+    .card.apex-trigger:hover {
+      border-color: #ef4444;
       color: #ffffff;
+      box-shadow: 0 0 12px var(--red-glow), 0 0 25px rgba(239, 68, 68, 0.2);
+      background: #1f070a;
     }
 
-    /* 2. MANGA CASINO: WHITE */
-    .brand-manga {
-      border-color: #94a3b8;
-      color: #f8fafc;
-    }
-    .brand-manga:hover {
-      border-color: #ffffff;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-      background: #1e293b;
-      color: #ffffff;
-    }
+    /* CUSTOM BRAND STYLES (EDGE SUB-VIEW) */
+    .brand-qbet { border-color: #166534; color: #4ade80; }
+    .brand-qbet:hover { border-color: #22c55e; box-shadow: 0 0 15px rgba(34, 197, 94, 0.4); background: #052e16; color: #ffffff; }
 
-    /* 3. 30BET: BLUE */
-    .brand-30bet {
-      border-color: #1e40af;
-      color: #60a5fa;
-    }
-    .brand-30bet:hover {
-      border-color: #3b82f6;
-      box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
-      background: #0f172a;
-      color: #ffffff;
-    }
+    .brand-manga { border-color: #94a3b8; color: #f8fafc; }
+    .brand-manga:hover { border-color: #ffffff; box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); background: #1e293b; color: #ffffff; }
 
-    /* 4. GQBET: BLACK & GOLD */
-    .brand-gqbet {
-      border-color: #854d0e;
-      color: #facc15;
-      background: #050300;
-    }
-    .brand-gqbet:hover {
-      border-color: #eab308;
-      box-shadow: 0 0 15px rgba(234, 179, 8, 0.4);
-      background: #1c1300;
-      color: #ffffff;
-    }
+    .brand-30bet { border-color: #1e40af; color: #60a5fa; }
+    .brand-30bet:hover { border-color: #3b82f6; box-shadow: 0 0 15px rgba(59, 130, 246, 0.4); background: #0f172a; color: #ffffff; }
 
-    /* 5. 55BET: SPARKLY RED & WHITE */
+    .brand-gqbet { border-color: #854d0e; color: #facc15; background: #050300; }
+    .brand-gqbet:hover { border-color: #eab308; box-shadow: 0 0 15px rgba(234, 179, 8, 0.4); background: #1c1300; color: #ffffff; }
+
+    /* 55BET: SPARKLY RED & WHITE */
     .brand-55bet {
       border-color: #ef4444;
       background: linear-gradient(135deg, #2b0407 0%, #0a0203 100%);
@@ -385,7 +359,7 @@
       transform: translateY(-4px) scale(1.02);
     }
 
-    /* 6. HOWZIT: SPARKLY WHITE & GOLD */
+    /* HOWZIT: SPARKLY WHITE & GOLD */
     .brand-howzit {
       border-color: #eab308;
       background: linear-gradient(135deg, #ffffff 0%, #fef08a 100%);
@@ -409,6 +383,36 @@
       color: #000000;
     }
 
+    /* CUSTOM BRAND STYLES (APEX SUB-VIEW) */
+    
+    /* IBET: RED & WHITE */
+    .brand-ibet {
+      border-color: #dc2626;
+      background: linear-gradient(135deg, #180305 0%, #0a0203 100%);
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .brand-ibet:hover {
+      border-color: #ef4444;
+      box-shadow: 0 0 18px rgba(239, 68, 68, 0.5), 0 0 25px rgba(255, 255, 255, 0.2);
+      background: #250508;
+      color: #ffffff;
+    }
+
+    /* ARCTIC CASINO: ICE BLUE & SILVER WHITE */
+    .brand-arctic {
+      border-color: #38bdf8;
+      background: linear-gradient(135deg, #031525 0%, #080f18 100%);
+      color: #f1f5f9;
+      font-weight: 500;
+    }
+    .brand-arctic:hover {
+      border-color: #7dd3fc;
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.5), 0 0 25px rgba(241, 245, 249, 0.3);
+      background: #07233b;
+      color: #ffffff;
+    }
+
     @keyframes pulseSparkle {
       0% { opacity: 0.3; transform: scale(0.8); }
       100% { opacity: 1; transform: scale(1.2); }
@@ -429,7 +433,7 @@
       <button class="close-btn" onclick="toggleMenu()">&times;</button>
     </div>
     <ul class="sidebar-menu">
-      <li><a href="#" onclick="showMainView(); toggleMenu();">Main Dashboard</a></li>
+      <li><a href="#" onclick="showView('mainView'); toggleMenu();">Main Dashboard</a></li>
       
       <!-- 55BET CONTENT DROPDOWN -->
       <li>
@@ -444,9 +448,10 @@
         </div>
       </li>
 
-      <li><a href="#" onclick="showGreenAdminView(); toggleMenu();">Green Admin Brands</a></li>
-      <li><a href="https://admin.apexplatform.io/login" target="_blank">Red Admin</a></li>
-      <li><a href="https://ibet.atlassian.net/jira/core/projects/CAM/calendar" target="_blank">Jira Calendar</a></li>
+      <li><a href="#" onclick="showView('edgeView'); toggleMenu();">EDGE Admin Brands</a></li>
+      <li><a href="#" onclick="showView('apexView'); toggleMenu();">APEX Admin Brands</a></li>
+      <li><a href="#" onclick="showView('casinoView'); toggleMenu();">Casino Resources</a></li>
+      <li><a href="#" onclick="showView('crmToolsView'); toggleMenu();">CRM Tools</a></li>
     </ul>
   </div>
 
@@ -456,7 +461,7 @@
     <!-- ROUNDED BANNER -->
     <div class="banner-container">
       <div class="banner-content">
-        <h1 class="banner-title" id="bannerTitle">CRM</h1>
+        <h1 class="banner-title">CRM</h1>
         <div class="banner-subtitle" id="bannerSubtitle">Brand & Operations Portal</div>
       </div>
     </div>
@@ -464,77 +469,63 @@
     <!-- HEADER CONTROLS BAR -->
     <div class="header-bar">
       <button class="menu-toggle" onclick="toggleMenu()" title="Open Menu">☰</button>
-      <button class="back-btn" id="backBtn" onclick="showMainView()">← Back to Dashboard</button>
+      <button class="back-btn" id="backBtn" onclick="showView('mainView')">← Back to Dashboard</button>
     </div>
 
     <!-- VIEW 1: MAIN DASHBOARD -->
     <div class="grid view-section active" id="mainView">
       
-      <!-- GREEN ADMIN TRIGGER (OPENS SUB-VIEW) -->
-      <div class="card green-admin-trigger" onclick="showGreenAdminView()">
-        GREEN ADMIN
+      <!-- 1. EDGE -->
+      <div class="card edge-trigger" onclick="showView('edgeView')">
+        EDGE
       </div>
 
-      <!-- RED ADMIN -->
-      <a href="https://admin.apexplatform.io/login" target="_blank" class="card">
-        RED ADMIN
-      </a>
+      <!-- 2. APEX -->
+      <div class="card apex-trigger" onclick="showView('apexView')">
+        APEX
+      </div>
 
-      <!-- GAME RELEASE -->
-      <a href="https://docs.google.com/spreadsheets/d/1uoTSV1EpmYpohtTDhrEYyEZDEVvEMguNdyR4qMxXuIE/edit?gid=0#gid=0" target="_blank" class="card">
-        GAME RELEASE
-      </a>
+      <!-- 3. CASINO -->
+      <div class="card" onclick="showView('casinoView')">
+        CASINO
+      </div>
 
-      <!-- COUNTRY TESTING -->
-      <a href="https://docs.google.com/spreadsheets/d/1P-UGjrhh5FRh2vuyyGQFTJuBGiXoL8Ec_KPwmhUmcqo/edit?gid=335110277#gid=335110277" target="_blank" class="card">
-        COUNTRY TESTING
-      </a>
-
-      <!-- CRM CALENDAR -->
-      <a href="https://docs.google.com/spreadsheets/d/13ubzW7K15O2tr_0ORf7Q1BwqJiCOWa1f9w8DL5WH1dc/edit?gid=305835903#gid=305835903" target="_blank" class="card">
-        CRM CALENDAR
-      </a>
-
-      <!-- JIRA -->
-      <a href="https://ibet.atlassian.net/jira/core/projects/CAM/calendar" target="_blank" class="card">
-        JIRA
-      </a>
+      <!-- 4. CRM TOOLS -->
+      <div class="card" onclick="showView('crmToolsView')">
+        CRM TOOLS
+      </div>
 
     </div>
 
-    <!-- VIEW 2: GREEN ADMIN BRANDS -->
-    <div class="grid view-section" id="greenAdminView">
-      
-      <!-- QBET -->
-      <a href="https://admin.edgegaming.io/admin/qbet/homepage" target="_blank" class="card brand-qbet">
-        Qbet Admin
-      </a>
+    <!-- VIEW 2: EDGE BRANDS -->
+    <div class="grid view-section" id="edgeView">
+      <a href="https://admin.edgegaming.io/admin/qbet/homepage" target="_blank" class="card brand-qbet">Qbet Admin</a>
+      <a href="https://admin.edgegaming.io/admin/manga/homepage" target="_blank" class="card brand-manga">Manga Casino Admin</a>
+      <a href="https://admin.edgegaming.io/admin/30bet/homepage" target="_blank" class="card brand-30bet">30bet Admin</a>
+      <a href="https://admin.edgegaming.io/admin/gqbet/homepage" target="_blank" class="card brand-gqbet">GQbet Admin</a>
+      <a href="https://admin.edgegaming.io/admin/55bet/homepage" target="_blank" class="card brand-55bet">55bet Admin</a>
+      <a href="https://admin.edgegaming.io/admin/howzit/homepage" target="_blank" class="card brand-howzit">Howzit Admin</a>
+    </div>
 
-      <!-- MANGA CASINO -->
-      <a href="https://admin.edgegaming.io/admin/manga/homepage" target="_blank" class="card brand-manga">
-        Manga Casino Admin
-      </a>
+    <!-- VIEW 3: APEX BRANDS -->
+    <div class="grid view-section" id="apexView">
+      <a href="https://admin.apexplatform.io/admin/ibet/homepage" target="_blank" class="card brand-ibet">iBet Admin</a>
+      <a href="https://admin.apexplatform.io/admin/arctic/homepage" target="_blank" class="card brand-arctic">Arctic Casino Admin</a>
+    </div>
 
-      <!-- 30BET -->
-      <a href="https://admin.edgegaming.io/admin/30bet/homepage" target="_blank" class="card brand-30bet">
-        30bet Admin
-      </a>
+    <!-- VIEW 4: CASINO RESOURCES -->
+    <div class="grid view-section" id="casinoView">
+      <a href="https://docs.google.com/spreadsheets/d/1uoTSV1EpmYpohtTDhrEYyEZDEVvEMguNdyR4qMxXuIE/edit?gid=0#gid=0" target="_blank" class="card">Game Release</a>
+      <a href="https://docs.google.com/spreadsheets/d/1P-UGjrhh5FRh2vuyyGQFTJuBGiXoL8Ec_KPwmhUmcqo/edit?gid=335110277#gid=335110277" target="_blank" class="card">Country Testing</a>
+      <a href="https://drive.google.com/file/d/184CzdRUXEYmDOLNaMR9SBtTiN3JxziQN/view?ts=6a79c76f" target="_blank" class="card">PNG Game Configuration</a>
+    </div>
 
-      <!-- GQBET -->
-      <a href="https://admin.edgegaming.io/admin/gqbet/homepage" target="_blank" class="card brand-gqbet">
-        GQbet Admin
-      </a>
-
-      <!-- 55BET (SPARKLY) -->
-      <a href="https://admin.edgegaming.io/admin/55bet/homepage" target="_blank" class="card brand-55bet">
-        55bet Admin
-      </a>
-
-      <!-- HOWZIT (SPARKLY) -->
-      <a href="https://admin.edgegaming.io/admin/howzit/homepage" target="_blank" class="card brand-howzit">
-        Howzit Admin
-      </a>
-
+    <!-- VIEW 5: CRM TOOLS -->
+    <div class="grid view-section" id="crmToolsView">
+      <a href="https://docs.google.com/spreadsheets/d/13ubzW7K15O2tr_0ORf7Q1BwqJiCOWa1f9w8DL5WH1dc/edit?gid=305835903#gid=305835903" target="_blank" class="card">CRM Calendar</a>
+      <a href="https://ibet.atlassian.net/jira/core/projects/CAM/calendar" target="_blank" class="card">Jira</a>
+      <a href="https://ibet.atlassian.net/wiki/spaces/CRM/overview?homepageId=1257210061" target="_blank" class="card">Confluence</a>
+      <a href="https://ibet.atlassian.net/wiki/spaces/CRM/pages/1264549924/TEST+ACCOUNTS" target="_blank" class="card">Test Accounts</a>
     </div>
 
   </div>
@@ -557,18 +548,31 @@
       }
     }
 
-    function showGreenAdminView() {
-      document.getElementById('mainView').classList.remove('active');
-      document.getElementById('greenAdminView').classList.add('active');
-      document.getElementById('backBtn').style.display = 'block';
-      document.getElementById('bannerSubtitle').innerText = "Green Admin Portals";
-    }
+    const subtitles = {
+      'mainView': 'Brand & Operations Portal',
+      'edgeView': 'EDGE Admin Portals',
+      'apexView': 'APEX Admin Portals',
+      'casinoView': 'Casino Operations & Setup',
+      'crmToolsView': 'CRM Workspace & Planning'
+    };
 
-    function showMainView() {
-      document.getElementById('greenAdminView').classList.remove('active');
-      document.getElementById('mainView').classList.add('active');
-      document.getElementById('backBtn').style.display = 'none';
-      document.getElementById('bannerSubtitle').innerText = "Brand & Operations Portal";
+    function showView(viewId) {
+      // Hide all views
+      document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+      
+      // Show selected view
+      document.getElementById(viewId).classList.add('active');
+      
+      // Toggle back button
+      const backBtn = document.getElementById('backBtn');
+      if (viewId === 'mainView') {
+        backBtn.style.display = 'none';
+      } else {
+        backBtn.style.display = 'block';
+      }
+
+      // Update banner subtitle
+      document.getElementById('bannerSubtitle').innerText = subtitles[viewId] || 'Brand & Operations Portal';
     }
   </script>
 
