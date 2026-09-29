@@ -269,6 +269,14 @@
       gap: 1.2rem;
     }
 
+    /* SUBTLE DIVISION LINE FOR BRANDS VIEW */
+    .section-divider {
+      grid-column: 1 / -1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, #4a0d17 50%, transparent 100%);
+      margin: 0.8rem 0;
+    }
+
     /* DEFAULT LINK BUTTON STYLES */
     .card {
       background: var(--card-bg);
@@ -298,31 +306,25 @@
       background: #1a0507;
     }
 
-    /* EDGE MAIN BUTTON */
-    .card.edge-trigger {
-      border-color: #14532d;
-      color: #86efac;
+    /* SPECIAL MAIN BUTTONS */
+    .card.brand-trigger {
+      border-color: #854d0e;
+      color: #facc15;
     }
-    .card.edge-trigger:hover {
-      border-color: var(--green-accent);
+    .card.brand-trigger:hover {
+      border-color: #eab308;
+      box-shadow: 0 0 15px rgba(234, 179, 8, 0.4);
+      background: #1c1300;
       color: #ffffff;
-      box-shadow: 0 0 12px var(--green-glow), 0 0 25px rgba(34, 197, 94, 0.15);
-      background: #042110;
     }
 
-    /* APEX MAIN BUTTON */
-    .card.apex-trigger {
-      border-color: #7f1d1d;
-      color: #fca5a5;
-    }
-    .card.apex-trigger:hover {
-      border-color: #ef4444;
-      color: #ffffff;
-      box-shadow: 0 0 12px var(--red-glow), 0 0 25px rgba(239, 68, 68, 0.2);
-      background: #1f070a;
-    }
+    .card.edge-trigger { border-color: #14532d; color: #86efac; }
+    .card.edge-trigger:hover { border-color: var(--green-accent); color: #ffffff; box-shadow: 0 0 12px var(--green-glow); background: #042110; }
 
-    /* CUSTOM BRAND STYLES (EDGE SUB-VIEW) */
+    .card.apex-trigger { border-color: #7f1d1d; color: #fca5a5; }
+    .card.apex-trigger:hover { border-color: #ef4444; color: #ffffff; box-shadow: 0 0 12px var(--red-glow); background: #1f070a; }
+
+    /* BRAND SPECIFIC STYLES */
     .brand-qbet { border-color: #166534; color: #4ade80; }
     .brand-qbet:hover { border-color: #22c55e; box-shadow: 0 0 15px rgba(34, 197, 94, 0.4); background: #052e16; color: #ffffff; }
 
@@ -383,8 +385,6 @@
       color: #000000;
     }
 
-    /* CUSTOM BRAND STYLES (APEX SUB-VIEW) */
-    
     /* IBET: RED & WHITE */
     .brand-ibet {
       border-color: #dc2626;
@@ -394,7 +394,7 @@
     }
     .brand-ibet:hover {
       border-color: #ef4444;
-      box-shadow: 0 0 18px rgba(239, 68, 68, 0.5), 0 0 25px rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 18px rgba(239, 68, 68, 0.5);
       background: #250508;
       color: #ffffff;
     }
@@ -408,7 +408,7 @@
     }
     .brand-arctic:hover {
       border-color: #7dd3fc;
-      box-shadow: 0 0 18px rgba(56, 189, 248, 0.5), 0 0 25px rgba(241, 245, 249, 0.3);
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.5);
       background: #07233b;
       color: #ffffff;
     }
@@ -429,11 +429,12 @@
   <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
   <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
-      <span class="sidebar-title">Menu & Resources</span>
+      <span class="sidebar-title">Menu & Operations</span>
       <button class="close-btn" onclick="toggleMenu()">&times;</button>
     </div>
     <ul class="sidebar-menu">
       <li><a href="#" onclick="showView('mainView'); toggleMenu();">Main Dashboard</a></li>
+      <li><a href="#" onclick="showView('brandsView'); toggleMenu();">Brands HUB</a></li>
       
       <!-- 55BET CONTENT DROPDOWN -->
       <li>
@@ -448,8 +449,8 @@
         </div>
       </li>
 
-      <li><a href="#" onclick="showView('edgeView'); toggleMenu();">EDGE Admin Brands</a></li>
-      <li><a href="#" onclick="showView('apexView'); toggleMenu();">APEX Admin Brands</a></li>
+      <li><a href="#" onclick="showView('edgeView'); toggleMenu();">EDGE Admin Portals</a></li>
+      <li><a href="#" onclick="showView('apexView'); toggleMenu();">APEX Admin Portals</a></li>
       <li><a href="#" onclick="showView('casinoView'); toggleMenu();">Casino Resources</a></li>
       <li><a href="#" onclick="showView('crmToolsView'); toggleMenu();">CRM Tools</a></li>
     </ul>
@@ -469,35 +470,42 @@
     <!-- HEADER CONTROLS BAR -->
     <div class="header-bar">
       <button class="menu-toggle" onclick="toggleMenu()" title="Open Menu">☰</button>
-      <button class="back-btn" id="backBtn" onclick="showView('mainView')">← Back to Dashboard</button>
+      <button class="back-btn" id="backBtn" onclick="goBack()">← Back</button>
     </div>
 
     <!-- VIEW 1: MAIN DASHBOARD -->
     <div class="grid view-section active" id="mainView">
-      
-      <!-- 1. EDGE -->
-      <div class="card edge-trigger" onclick="showView('edgeView')">
-        EDGE
-      </div>
-
-      <!-- 2. APEX -->
-      <div class="card apex-trigger" onclick="showView('apexView')">
-        APEX
-      </div>
-
-      <!-- 3. CASINO -->
-      <div class="card" onclick="showView('casinoView')">
-        CASINO
-      </div>
-
-      <!-- 4. CRM TOOLS -->
-      <div class="card" onclick="showView('crmToolsView')">
-        CRM TOOLS
-      </div>
-
+      <div class="card brand-trigger" onclick="showView('brandsView')">BRAND</div>
+      <div class="card edge-trigger" onclick="showView('edgeView')">EDGE</div>
+      <div class="card apex-trigger" onclick="showView('apexView')">APEX</div>
+      <div class="card" onclick="showView('casinoView')">CASINO</div>
+      <div class="card" onclick="showView('crmToolsView')">CRM TOOLS</div>
     </div>
 
-    <!-- VIEW 2: EDGE BRANDS -->
+    <!-- VIEW 2: BRANDS OVERVIEW -->
+    <div class="grid view-section" id="brandsView">
+      <div class="card brand-qbet" onclick="showBrandDetail('Qbet')">Qbet</div>
+      <div class="card brand-manga" onclick="showBrandDetail('Manga Casino')">Manga Casino</div>
+      <div class="card brand-30bet" onclick="showBrandDetail('30bet')">30bet</div>
+      <div class="card brand-gqbet" onclick="showBrandDetail('GQbet')">GQbet</div>
+      <div class="card brand-55bet" onclick="showBrandDetail('55bet')">55bet</div>
+      <div class="card brand-howzit" onclick="showBrandDetail('Howzit')">Howzit</div>
+      
+      <!-- SUBTLE DIVISION LINE -->
+      <div class="section-divider"></div>
+      
+      <div class="card brand-ibet" onclick="showBrandDetail('iBet')">iBet</div>
+      <div class="card brand-arctic" onclick="showBrandDetail('Arctic Casino')">Arctic Casino</div>
+    </div>
+
+    <!-- VIEW 3: BRAND DETAIL (PLACEHOLDER FOR YOUR LINKS LATER) -->
+    <div class="grid view-section" id="brandDetailView">
+      <div class="card">Tool / Link 1 (Coming Soon)</div>
+      <div class="card">Tool / Link 2 (Coming Soon)</div>
+      <div class="card">Tool / Link 3 (Coming Soon)</div>
+    </div>
+
+    <!-- VIEW 4: EDGE BRANDS -->
     <div class="grid view-section" id="edgeView">
       <a href="https://admin.edgegaming.io/admin/qbet/homepage" target="_blank" class="card brand-qbet">Qbet Admin</a>
       <a href="https://admin.edgegaming.io/admin/manga/homepage" target="_blank" class="card brand-manga">Manga Casino Admin</a>
@@ -507,20 +515,20 @@
       <a href="https://admin.edgegaming.io/admin/howzit/homepage" target="_blank" class="card brand-howzit">Howzit Admin</a>
     </div>
 
-    <!-- VIEW 3: APEX BRANDS -->
+    <!-- VIEW 5: APEX BRANDS -->
     <div class="grid view-section" id="apexView">
       <a href="https://admin.apexplatform.io/admin/ibet/homepage" target="_blank" class="card brand-ibet">iBet Admin</a>
       <a href="https://admin.apexplatform.io/admin/arctic/homepage" target="_blank" class="card brand-arctic">Arctic Casino Admin</a>
     </div>
 
-    <!-- VIEW 4: CASINO RESOURCES -->
+    <!-- VIEW 6: CASINO RESOURCES -->
     <div class="grid view-section" id="casinoView">
       <a href="https://docs.google.com/spreadsheets/d/1uoTSV1EpmYpohtTDhrEYyEZDEVvEMguNdyR4qMxXuIE/edit?gid=0#gid=0" target="_blank" class="card">Game Release</a>
       <a href="https://docs.google.com/spreadsheets/d/1P-UGjrhh5FRh2vuyyGQFTJuBGiXoL8Ec_KPwmhUmcqo/edit?gid=335110277#gid=335110277" target="_blank" class="card">Country Testing</a>
       <a href="https://drive.google.com/file/d/184CzdRUXEYmDOLNaMR9SBtTiN3JxziQN/view?ts=6a79c76f" target="_blank" class="card">PNG Game Configuration</a>
     </div>
 
-    <!-- VIEW 5: CRM TOOLS -->
+    <!-- VIEW 7: CRM TOOLS -->
     <div class="grid view-section" id="crmToolsView">
       <a href="https://docs.google.com/spreadsheets/d/13ubzW7K15O2tr_0ORf7Q1BwqJiCOWa1f9w8DL5WH1dc/edit?gid=305835903#gid=305835903" target="_blank" class="card">CRM Calendar</a>
       <a href="https://ibet.atlassian.net/jira/core/projects/CAM/calendar" target="_blank" class="card">Jira</a>
@@ -533,25 +541,22 @@
   </div>
 
   <script>
+    let navigationHistory = ['mainView'];
+
     function toggleMenu() {
-      const sidebar = document.getElementById('sidebar');
-      const overlay = document.getElementById('overlay');
-      sidebar.classList.toggle('open');
-      overlay.classList.toggle('active');
+      document.getElementById('sidebar').classList.toggle('open');
+      document.getElementById('overlay').classList.toggle('active');
     }
 
     function toggleDropdown(btn) {
       btn.classList.toggle('active');
       const container = btn.nextElementSibling;
-      if (container.style.display === "block") {
-        container.style.display = "none";
-      } else {
-        container.style.display = "block";
-      }
+      container.style.display = container.style.display === "block" ? "none" : "block";
     }
 
     const subtitles = {
       'mainView': 'Brand & Operations Portal',
+      'brandsView': 'All Brands Hub',
       'edgeView': 'EDGE Admin Portals',
       'apexView': 'APEX Admin Portals',
       'casinoView': 'Casino Operations & Setup',
@@ -559,22 +564,34 @@
     };
 
     function showView(viewId) {
-      // Hide all views
       document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
-      
-      // Show selected view
       document.getElementById(viewId).classList.add('active');
       
-      // Toggle back button
-      const backBtn = document.getElementById('backBtn');
-      if (viewId === 'mainView') {
-        backBtn.style.display = 'none';
-      } else {
-        backBtn.style.display = 'block';
+      if (navigationHistory[navigationHistory.length - 1] !== viewId) {
+        navigationHistory.push(viewId);
       }
 
-      // Update banner subtitle
+      document.getElementById('backBtn').style.display = viewId === 'mainView' ? 'none' : 'block';
       document.getElementById('bannerSubtitle').innerText = subtitles[viewId] || 'Brand & Operations Portal';
+    }
+
+    function showBrandDetail(brandName) {
+      document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+      document.getElementById('brandDetailView').classList.add('active');
+      
+      navigationHistory.push('brandDetailView');
+      document.getElementById('backBtn').style.display = 'block';
+      document.getElementById('bannerSubtitle').innerText = brandName + ' Workspace';
+    }
+
+    function goBack() {
+      if (navigationHistory.length > 1) {
+        navigationHistory.pop();
+        const prevView = navigationHistory[navigationHistory.length - 1];
+        showView(prevView);
+      } else {
+        showView('mainView');
+      }
     }
   </script>
 
