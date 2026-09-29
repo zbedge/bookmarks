@@ -117,7 +117,7 @@
       transition: color 0.4s ease;
     }
 
-    /* COMMAND BAR STATUS WIDGET */
+    /* COMPACT TOP WIDGET BAR */
     .status-widget-bar {
       width: 100%;
       display: flex;
@@ -126,11 +126,12 @@
       background: rgba(18, 4, 6, 0.6);
       border: 1px solid #2a080c;
       border-radius: 10px;
-      padding: 0.6rem 1.2rem;
+      padding: 0.5rem 1rem;
       margin-bottom: 1.2rem;
       backdrop-filter: blur(8px);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: #94a3b8;
+      gap: 1rem;
     }
 
     .status-item {
@@ -139,41 +140,41 @@
       gap: 0.5rem;
     }
 
-    .dot-online {
-      width: 8px;
-      height: 8px;
-      background-color: #22c55e;
-      border-radius: 50%;
-      box-shadow: 0 0 8px #22c55e;
-    }
-
-    /* SEARCH BAR */
-    .search-container {
-      width: 100%;
-      margin-bottom: 1.5rem;
-      position: relative;
-    }
-
-    .search-input {
-      width: 100%;
+    /* COMPACT CORNER SEARCH INPUT */
+    .compact-search-box {
+      display: flex;
+      align-items: center;
       background: #0f0305;
       border: 1px solid #3b0a11;
-      border-radius: 10px;
-      padding: 0.8rem 1.2rem;
-      color: #ffffff;
-      font-size: 0.92rem;
-      outline: none;
-      transition: all 0.3s ease;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+      border-radius: 6px;
+      padding: 0.25rem 0.6rem;
+      transition: all 0.2s ease;
+      max-width: 240px;
+      width: 100%;
     }
 
-    .search-input::placeholder {
-      color: #64748b;
-    }
-
-    .search-input:focus {
+    .compact-search-box:focus-within {
       border-color: #ef4444;
-      box-shadow: 0 0 12px rgba(239, 68, 68, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
+    }
+
+    .compact-search-box .search-icon {
+      font-size: 0.8rem;
+      margin-right: 0.4rem;
+      opacity: 0.7;
+    }
+
+    .compact-search-input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #ffffff;
+      font-size: 0.8rem;
+      width: 100%;
+    }
+
+    .compact-search-input::placeholder {
+      color: #64748b;
     }
 
     /* QUICK ACCESS / PINS SECTION */
@@ -531,17 +532,17 @@
       </div>
     </div>
 
-    <!-- COMMAND WIDGET STATUS BAR -->
+    <!-- COMPACT TOP WIDGET BAR -->
     <div class="status-widget-bar">
-      <div class="status-item">
-        <div class="dot-online"></div>
-        <span>System Status: <strong>Operational</strong></span>
+      <!-- CORNER QUICK SEARCH -->
+      <div class="compact-search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="compact-search-input" id="searchInput" placeholder="Search tools..." onkeyup="filterLinks()">
       </div>
+
+      <!-- MALTA LIVE TIME -->
       <div class="status-item">
-        <span>Brands Active: <strong>10/10</strong></span>
-      </div>
-      <div class="status-item">
-        <span>UTC: <strong id="utcClock">00:00:00</strong></span>
+        <span>Malta: <strong id="maltaClock">00:00:00</strong></span>
       </div>
     </div>
     
@@ -549,11 +550,6 @@
     <div class="header-bar">
       <button class="menu-toggle" onclick="toggleMenu()" title="Open Menu">☰</button>
       <button class="back-btn" id="backBtn" onclick="goBack()">← Back</button>
-    </div>
-
-    <!-- INSTANT SEARCH INPUT -->
-    <div class="search-container" id="searchContainer">
-      <input type="text" class="search-input" id="searchInput" placeholder="⚡ Quick Search across all brands & tools..." onkeyup="filterLinks()">
     </div>
 
     <!-- SEARCH RESULTS VIEW -->
@@ -735,13 +731,14 @@
   <script>
     let navigationHistory = ['mainView'];
 
-    // LIVE UTC CLOCK
-    function updateClock() {
+    // LIVE MALTA TIME (Europe/Malta)
+    function updateMaltaClock() {
       const now = new Date();
-      document.getElementById('utcClock').innerText = now.toUTCString().split(' ')[4];
+      const options = { timeZone: 'Europe/Malta', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+      document.getElementById('maltaClock').innerText = new Intl.DateTimeFormat([], options).format(now);
     }
-    setInterval(updateClock, 1000);
-    updateClock();
+    setInterval(updateMaltaClock, 1000);
+    updateMaltaClock();
 
     function toggleMenu() {
       document.getElementById('sidebar').classList.toggle('open');
@@ -776,7 +773,6 @@
     };
 
     function showView(viewId) {
-      // Clear search when switching views manually
       if (viewId !== 'searchView') {
         document.getElementById('searchInput').value = '';
         document.getElementById('searchView').style.display = 'none';
@@ -815,7 +811,7 @@
       }
     }
 
-    // INSTANT REAL-TIME SEARCH FILTER
+    // REAL-TIME COMPACT SEARCH FILTER
     function filterLinks() {
       const query = document.getElementById('searchInput').value.toLowerCase().trim();
       const searchView = document.getElementById('searchView');
@@ -828,7 +824,6 @@
         return;
       }
 
-      // Show search results view
       dashboardContent.style.display = 'none';
       searchView.style.display = 'grid';
       searchView.innerHTML = '';
@@ -846,7 +841,7 @@
       });
 
       if (matches === 0) {
-        searchView.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: #64748b; padding: 2rem;">No matching tools or links found...</div>';
+        searchView.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: #64748b; padding: 2rem;">No matching tools found...</div>';
       }
 
       showView('searchView');
