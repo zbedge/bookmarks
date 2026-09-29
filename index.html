@@ -108,7 +108,7 @@
     }
 
     .banner-subtitle {
-      font-size: 1.6rem;
+      font-size: 1.6rem; /* Much bigger & prominent! */
       font-weight: 700;
       letter-spacing: 2px;
       color: var(--banner-sub-color);
@@ -117,118 +117,13 @@
       transition: color 0.4s ease;
     }
 
-    /* COMPACT TOP WIDGET BAR */
-    .status-widget-bar {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(18, 4, 6, 0.6);
-      border: 1px solid #2a080c;
-      border-radius: 10px;
-      padding: 0.5rem 1rem;
-      margin-bottom: 1.2rem;
-      backdrop-filter: blur(8px);
-      font-size: 0.82rem;
-      color: #94a3b8;
-      gap: 1rem;
-    }
-
-    .status-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    /* COMPACT CORNER SEARCH INPUT */
-    .compact-search-box {
-      display: flex;
-      align-items: center;
-      background: #0f0305;
-      border: 1px solid #3b0a11;
-      border-radius: 6px;
-      padding: 0.25rem 0.6rem;
-      transition: all 0.2s ease;
-      max-width: 240px;
-      width: 100%;
-    }
-
-    .compact-search-box:focus-within {
-      border-color: #ef4444;
-      box-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
-    }
-
-    .compact-search-box .search-icon {
-      font-size: 0.8rem;
-      margin-right: 0.4rem;
-      opacity: 0.7;
-    }
-
-    .compact-search-input {
-      background: transparent;
-      border: none;
-      outline: none;
-      color: #ffffff;
-      font-size: 0.8rem;
-      width: 100%;
-    }
-
-    .compact-search-input::placeholder {
-      color: #64748b;
-    }
-
-    /* QUICK ACCESS / PINS SECTION */
-    .quick-access-box {
-      margin-bottom: 1.5rem;
-    }
-
-    .section-label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: #ef4444;
-      margin-bottom: 0.6rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .quick-pins-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 0.8rem;
-    }
-
-    .pin-card {
-      background: rgba(18, 4, 6, 0.8);
-      border: 1px solid #2a080c;
-      border-radius: 6px;
-      padding: 0.6rem 0.9rem;
-      text-decoration: none;
-      color: #cbd5e1;
-      font-size: 0.82rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: all 0.2s ease;
-    }
-
-    .pin-card:hover {
-      border-color: #ef4444;
-      color: #ffffff;
-      background: #1f070a;
-      box-shadow: 0 0 10px rgba(239, 68, 68, 0.25);
-    }
-
     /* HEADER BAR FOR 3-BAR MENU */
     .header-bar {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     .menu-toggle {
@@ -531,20 +426,6 @@
         <div class="banner-subtitle" id="bannerSubtitle">Brand & Operations Portal</div>
       </div>
     </div>
-
-    <!-- COMPACT TOP WIDGET BAR -->
-    <div class="status-widget-bar">
-      <!-- CORNER QUICK SEARCH -->
-      <div class="compact-search-box">
-        <span class="search-icon">🔍</span>
-        <input type="text" class="compact-search-input" id="searchInput" placeholder="Search tools..." onkeyup="filterLinks()">
-      </div>
-
-      <!-- MALTA LIVE TIME -->
-      <div class="status-item">
-        <span>Malta: <strong id="maltaClock">00:00:00</strong></span>
-      </div>
-    </div>
     
     <!-- HEADER CONTROLS BAR -->
     <div class="header-bar">
@@ -552,44 +433,13 @@
       <button class="back-btn" id="backBtn" onclick="goBack()">← Back</button>
     </div>
 
-    <!-- SEARCH RESULTS VIEW -->
-    <div class="grid view-section" id="searchView"></div>
-
-    <!-- MAIN DASHBOARD CONTENT AREA -->
-    <div id="dashboardContent">
-      
-      <!-- QUICK ACCESS / PINS SECTION -->
-      <div class="quick-access-box" id="quickPinsBox">
-        <div class="section-label">⚡ Quick Access Pins</div>
-        <div class="quick-pins-grid">
-          <a href="https://admin.edgegaming.io/admin/55bet/homepage" target="_blank" class="pin-card">
-            <span>55bet Admin</span>
-            <span>✨</span>
-          </a>
-          <a href="#" onclick="showView('contentCheckView')" class="pin-card">
-            <span>Content Check</span>
-            <span>📊</span>
-          </a>
-          <a href="https://docs.google.com/spreadsheets/d/13ubzW7K15O2tr_0ORf7Q1BwqJiCOWa1f9w8DL5WH1dc/edit?gid=305835903#gid=305835903" target="_blank" class="pin-card">
-            <span>CRM Calendar</span>
-            <span>📅</span>
-          </a>
-          <a href="https://ibet.atlassian.net/jira/core/projects/CAM/calendar" target="_blank" class="pin-card">
-            <span>Jira Calendar</span>
-            <span>🚀</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- VIEW 1: MAIN DASHBOARD -->
-      <div class="grid view-section active" id="mainView">
-        <div class="card brand-trigger" onclick="showView('brandsView')">BRAND</div>
-        <div class="card edge-trigger" onclick="showView('edgeView')">EDGE</div>
-        <div class="card apex-trigger" onclick="showView('apexView')">APEX</div>
-        <div class="card" onclick="showView('casinoView')">CASINO</div>
-        <div class="card" onclick="showView('crmToolsView')">CRM TOOLS</div>
-      </div>
-
+    <!-- VIEW 1: MAIN DASHBOARD -->
+    <div class="grid view-section active" id="mainView">
+      <div class="card brand-trigger" onclick="showView('brandsView')">BRAND</div>
+      <div class="card edge-trigger" onclick="showView('edgeView')">EDGE</div>
+      <div class="card apex-trigger" onclick="showView('apexView')">APEX</div>
+      <div class="card" onclick="showView('casinoView')">CASINO</div>
+      <div class="card" onclick="showView('crmToolsView')">CRM TOOLS</div>
     </div>
 
     <!-- VIEW 2: BRANDS OVERVIEW -->
@@ -614,131 +464,122 @@
     
     <!-- QBET -->
     <div class="grid view-section" id="brandQbetView">
-      <a href="https://www.qbet.com/en-UN" target="_blank" class="card search-item" data-title="qbet website">Website</a>
-      <a href="https://drive.google.com/drive/u/1/folders/1I9SxublbQZpzD7eVCYiY6xsQc1tSQfVH?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card search-item" data-title="qbet creatives">Creatives</a>
-      <a href="https://admin.edgegaming.io/admin/qbet/homepage" target="_blank" class="card brand-qbet search-item" data-title="qbet admin">Admin</a>
+      <a href="https://www.qbet.com/en-UN" target="_blank" class="card">Website</a>
+      <a href="https://drive.google.com/drive/u/1/folders/1I9SxublbQZpzD7eVCYiY6xsQc1tSQfVH?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card">Creatives</a>
+      <a href="https://admin.edgegaming.io/admin/qbet/homepage" target="_blank" class="card brand-qbet">Admin</a>
     </div>
 
     <!-- MANGA CASINO -->
     <div class="grid view-section" id="brandMangaView">
-      <a href="https://www.mangacasino.com/en-UN" target="_blank" class="card search-item" data-title="manga casino website">Website</a>
-      <a href="https://drive.google.com/drive/u/1/folders/19ovaY1VoGjTMNAfWuVdkdLwib8IykQ6x?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card search-item" data-title="manga casino creatives">Creatives</a>
-      <a href="https://admin.edgegaming.io/admin/manga/homepage" target="_blank" class="card brand-manga search-item" data-title="manga casino admin">Admin</a>
+      <a href="https://www.mangacasino.com/en-UN" target="_blank" class="card">Website</a>
+      <a href="https://drive.google.com/drive/u/1/folders/19ovaY1VoGjTMNAfWuVdkdLwib8IykQ6x?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card">Creatives</a>
+      <a href="https://admin.edgegaming.io/admin/manga/homepage" target="_blank" class="card brand-manga">Admin</a>
     </div>
 
     <!-- 30BET -->
     <div class="grid view-section" id="brand30betView">
-      <a href="https://www.30bet.com/en-UN" target="_blank" class="card search-item" data-title="30bet website">Website</a>
-      <a href="https://drive.google.com/drive/u/1/folders/1U5zut8q8B-4mbBG2zWznqjdrg545IhoO?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card search-item" data-title="30bet creatives">Creatives</a>
-      <a href="https://admin.edgegaming.io/admin/30bet/homepage" target="_blank" class="card brand-30bet search-item" data-title="30bet admin">Admin</a>
+      <a href="https://www.30bet.com/en-UN" target="_blank" class="card">Website</a>
+      <a href="https://drive.google.com/drive/u/1/folders/1U5zut8q8B-4mbBG2zWznqjdrg545IhoO?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card">Creatives</a>
+      <a href="https://admin.edgegaming.io/admin/30bet/homepage" target="_blank" class="card brand-30bet">Admin</a>
     </div>
 
     <!-- GQBET -->
     <div class="grid view-section" id="brandGqbetView">
-      <a href="https://www.gqbet.vip/en-UN/" target="_blank" class="card search-item" data-title="gqbet website">Website</a>
-      <a href="https://drive.google.com/drive/u/1/folders/1XwRBlNhQQP-FtdA4qMAMrH2bSSs6fVod?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card search-item" data-title="gqbet creatives">Creatives</a>
-      <a href="https://admin.edgegaming.io/admin/gqbet/homepage" target="_blank" class="card brand-gqbet search-item" data-title="gqbet admin">Admin</a>
+      <a href="https://www.gqbet.vip/en-UN/" target="_blank" class="card">Website</a>
+      <a href="https://drive.google.com/drive/u/1/folders/1XwRBlNhQQP-FtdA4qMAMrH2bSSs6fVod?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card">Creatives</a>
+      <a href="https://admin.edgegaming.io/admin/gqbet/homepage" target="_blank" class="card brand-gqbet">Admin</a>
     </div>
 
     <!-- 55BET -->
     <div class="grid view-section" id="brand55betView">
-      <a href="https://www.55bet.com/en-UN" target="_blank" class="card search-item" data-title="55bet website">Website</a>
-      <a href="https://drive.google.com/drive/u/1/folders/1AW2dMIgxqbQ1nYpi2AhMRh2f3_JR2zMQ?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card search-item" data-title="55bet creatives">Creatives</a>
-      <a href="https://admin.edgegaming.io/admin/55bet/homepage" target="_blank" class="card brand-55bet search-item" data-title="55bet admin">Admin</a>
-      <a href="https://cms.55bet.com/structure" target="_blank" class="card search-item" data-title="55bet cms">CMS</a>
+      <a href="https://www.55bet.com/en-UN" target="_blank" class="card">Website</a>
+      <a href="https://drive.google.com/drive/u/1/folders/1AW2dMIgxqbQ1nYpi2AhMRh2f3_JR2zMQ?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card">Creatives</a>
+      <a href="https://admin.edgegaming.io/admin/55bet/homepage" target="_blank" class="card brand-55bet">Admin</a>
+      <a href="https://cms.55bet.com/structure" target="_blank" class="card">CMS</a>
     </div>
 
     <!-- HOWZIT -->
     <div class="grid view-section" id="brandHowzitView">
-      <a href="https://www.howzitcasino.com/en-UN/" target="_blank" class="card search-item" data-title="howzit website">Website</a>
-      <a href="https://drive.google.com/drive/u/1/folders/1MzEXb_kvnvoxJgEGG-xgAUHaaQwMUlcZ?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card search-item" data-title="howzit creatives">Creatives</a>
-      <a href="https://admin.edgegaming.io/admin/howzit/homepage" target="_blank" class="card brand-howzit search-item" data-title="howzit admin">Admin</a>
-      <a href="https://cms.howzitcasino.com/structure" target="_blank" class="card search-item" data-title="howzit cms">CMS</a>
+      <a href="https://www.howzitcasino.com/en-UN/" target="_blank" class="card">Website</a>
+      <a href="https://drive.google.com/drive/u/1/folders/1MzEXb_kvnvoxJgEGG-xgAUHaaQwMUlcZ?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card">Creatives</a>
+      <a href="https://admin.edgegaming.io/admin/howzit/homepage" target="_blank" class="card brand-howzit">Admin</a>
+      <a href="https://cms.howzitcasino.com/structure" target="_blank" class="card">CMS</a>
     </div>
 
     <!-- 7ABET -->
     <div class="grid view-section" id="brand7abetView">
-      <a href="https://www.7abet.com/en-UN" target="_blank" class="card search-item" data-title="7abet website">Website</a>
-      <a href="https://drive.google.com/drive/u/1/folders/1qVHnIelzjHku3Zyt-MGipPRlWZVc41hN?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card search-item" data-title="7abet creatives">Creatives</a>
+      <a href="https://www.7abet.com/en-UN" target="_blank" class="card">Website</a>
+      <a href="https://drive.google.com/drive/u/1/folders/1qVHnIelzjHku3Zyt-MGipPRlWZVc41hN?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card">Creatives</a>
     </div>
 
     <!-- BVBET -->
     <div class="grid view-section" id="brandBvbetView">
-      <a href="https://www.bvbet.com/en-UN" target="_blank" class="card search-item" data-title="bvbet website">Website</a>
-      <a href="https://drive.google.com/drive/u/1/folders/1KLq1oVoGMhgvJmnFwsYh94QJI8zsj8Oh?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card search-item" data-title="bvbet creatives">Creatives</a>
+      <a href="https://www.bvbet.com/en-UN" target="_blank" class="card">Website</a>
+      <a href="https://drive.google.com/drive/u/1/folders/1KLq1oVoGMhgvJmnFwsYh94QJI8zsj8Oh?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card">Creatives</a>
     </div>
 
     <!-- IBET -->
     <div class="grid view-section" id="brandIbetView">
-      <a href="https://www.ibet.com/en-UN" target="_blank" class="card search-item" data-title="ibet website">Website</a>
-      <a href="https://drive.google.com/drive/u/1/folders/1RLENkMYg_hU0ZrR_ke31cKU1jLq1y07F?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card search-item" data-title="ibet creatives">Creatives</a>
-      <a href="https://admin.apexplatform.io/admin/ibet/homepage" target="_blank" class="card brand-ibet search-item" data-title="ibet admin">Admin</a>
-      <a href="https://cms.ibet.com/structure" target="_blank" class="card search-item" data-title="ibet cms">CMS</a>
-      <a href="https://ibetcrm.ft-crm.com/v2/" target="_blank" class="card search-item" data-title="ibet fastrack">Fastrack</a>
+      <a href="https://www.ibet.com/en-UN" target="_blank" class="card">Website</a>
+      <a href="https://drive.google.com/drive/u/1/folders/1RLENkMYg_hU0ZrR_ke31cKU1jLq1y07F?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card">Creatives</a>
+      <a href="https://admin.apexplatform.io/admin/ibet/homepage" target="_blank" class="card brand-ibet">Admin</a>
+      <a href="https://cms.ibet.com/structure" target="_blank" class="card">CMS</a>
+      <a href="https://ibetcrm.ft-crm.com/v2/" target="_blank" class="card">Fastrack</a>
     </div>
 
     <!-- ARCTIC CASINO -->
     <div class="grid view-section" id="brandArcticView">
-      <a href="https://www.arcticcasino.com/en-UN" target="_blank" class="card search-item" data-title="arctic casino website">Website</a>
-      <a href="https://drive.google.com/drive/u/1/folders/1slR-bZfMUAVLw_3EWR91kChB7wgRsxiY?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card search-item" data-title="arctic casino creatives">Creatives</a>
-      <a href="https://admin.apexplatform.io/admin/arctic/homepage" target="_blank" class="card brand-arctic search-item" data-title="arctic casino admin">Admin</a>
-      <a href="https://cms.arcticcasino.com/structure" target="_blank" class="card search-item" data-title="arctic casino cms">CMS</a>
-      <a href="https://ibetcrm.ft-crm.com/v2/" target="_blank" class="card search-item" data-title="arctic casino fastrack">Fastrack</a>
+      <a href="https://www.arcticcasino.com/en-UN" target="_blank" class="card">Website</a>
+      <a href="https://drive.google.com/drive/u/1/folders/1slR-bZfMUAVLw_3EWR91kChB7wgRsxiY?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card">Creatives</a>
+      <a href="https://admin.apexplatform.io/admin/arctic/homepage" target="_blank" class="card brand-arctic">Admin</a>
+      <a href="https://cms.arcticcasino.com/structure" target="_blank" class="card">CMS</a>
+      <a href="https://ibetcrm.ft-crm.com/v2/" target="_blank" class="card">Fastrack</a>
     </div>
 
     <!-- VIEW: EDGE BRANDS -->
     <div class="grid view-section" id="edgeView">
-      <a href="https://admin.edgegaming.io/admin/qbet/homepage" target="_blank" class="card brand-qbet search-item" data-title="qbet admin">Qbet Admin</a>
-      <a href="https://admin.edgegaming.io/admin/manga/homepage" target="_blank" class="card brand-manga search-item" data-title="manga admin">Manga Casino Admin</a>
-      <a href="https://admin.edgegaming.io/admin/30bet/homepage" target="_blank" class="card brand-30bet search-item" data-title="30bet admin">30bet Admin</a>
-      <a href="https://admin.edgegaming.io/admin/gqbet/homepage" target="_blank" class="card brand-gqbet search-item" data-title="gqbet admin">GQbet Admin</a>
-      <a href="https://admin.edgegaming.io/admin/55bet/homepage" target="_blank" class="card brand-55bet search-item" data-title="55bet admin">55bet Admin</a>
-      <a href="https://admin.edgegaming.io/admin/howzit/homepage" target="_blank" class="card brand-howzit search-item" data-title="howzit admin">Howzit Admin</a>
+      <a href="https://admin.edgegaming.io/admin/qbet/homepage" target="_blank" class="card brand-qbet">Qbet Admin</a>
+      <a href="https://admin.edgegaming.io/admin/manga/homepage" target="_blank" class="card brand-manga">Manga Casino Admin</a>
+      <a href="https://admin.edgegaming.io/admin/30bet/homepage" target="_blank" class="card brand-30bet">30bet Admin</a>
+      <a href="https://admin.edgegaming.io/admin/gqbet/homepage" target="_blank" class="card brand-gqbet">GQbet Admin</a>
+      <a href="https://admin.edgegaming.io/admin/55bet/homepage" target="_blank" class="card brand-55bet">55bet Admin</a>
+      <a href="https://admin.edgegaming.io/admin/howzit/homepage" target="_blank" class="card brand-howzit">Howzit Admin</a>
     </div>
 
     <!-- VIEW: APEX BRANDS -->
     <div class="grid view-section" id="apexView">
-      <a href="https://admin.apexplatform.io/admin/ibet/homepage" target="_blank" class="card brand-ibet search-item" data-title="ibet admin">iBet Admin</a>
-      <a href="https://admin.apexplatform.io/admin/arctic/homepage" target="_blank" class="card brand-arctic search-item" data-title="arctic casino admin">Arctic Casino Admin</a>
+      <a href="https://admin.apexplatform.io/admin/ibet/homepage" target="_blank" class="card brand-ibet">iBet Admin</a>
+      <a href="https://admin.apexplatform.io/admin/arctic/homepage" target="_blank" class="card brand-arctic">Arctic Casino Admin</a>
     </div>
 
     <!-- VIEW: CASINO RESOURCES -->
     <div class="grid view-section" id="casinoView">
-      <a href="https://docs.google.com/spreadsheets/d/1uoTSV1EpmYpohtTDhrEYyEZDEVvEMguNdyR4qMxXuIE/edit?gid=0#gid=0" target="_blank" class="card search-item" data-title="game release spreadsheet">Game Release</a>
-      <a href="https://docs.google.com/spreadsheets/d/1P-UGjrhh5FRh2vuyyGQFTJuBGiXoL8Ec_KPwmhUmcqo/edit?gid=335110277#gid=335110277" target="_blank" class="card search-item" data-title="country testing spreadsheet">Country Testing</a>
-      <a href="https://drive.google.com/file/d/184CzdRUXEYmDOLNaMR9SBtTiN3JxziQN/view?ts=6a79c76f" target="_blank" class="card search-item" data-title="png game configuration">PNG Game Configuration</a>
+      <a href="https://docs.google.com/spreadsheets/d/1uoTSV1EpmYpohtTDhrEYyEZDEVvEMguNdyR4qMxXuIE/edit?gid=0#gid=0" target="_blank" class="card">Game Release</a>
+      <a href="https://docs.google.com/spreadsheets/d/1P-UGjrhh5FRh2vuyyGQFTJuBGiXoL8Ec_KPwmhUmcqo/edit?gid=335110277#gid=335110277" target="_blank" class="card">Country Testing</a>
+      <a href="https://drive.google.com/file/d/184CzdRUXEYmDOLNaMR9SBtTiN3JxziQN/view?ts=6a79c76f" target="_blank" class="card">PNG Game Configuration</a>
     </div>
 
     <!-- VIEW: CRM TOOLS -->
     <div class="grid view-section" id="crmToolsView">
-      <a href="https://docs.google.com/spreadsheets/d/13ubzW7K15O2tr_0ORf7Q1BwqJiCOWa1f9w8DL5WH1dc/edit?gid=305835903#gid=305835903" target="_blank" class="card search-item" data-title="crm calendar">CRM Calendar</a>
-      <a href="https://ibet.atlassian.net/jira/core/projects/CAM/calendar" target="_blank" class="card search-item" data-title="jira calendar">Jira</a>
-      <a href="https://ibet.atlassian.net/wiki/spaces/CRM/overview?homepageId=1257210061" target="_blank" class="card search-item" data-title="confluence crm wiki">Confluence</a>
-      <a href="https://ibet.atlassian.net/wiki/spaces/CRM/pages/1264549924/TEST+ACCOUNTS" target="_blank" class="card search-item" data-title="test accounts wiki">Test Accounts</a>
-      <a href="https://drive.google.com/drive/u/1/folders/1dutX3R11Ff4IwYUPd1GCjM6ydqrq3EK4?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card search-item" data-title="creatives folder">Creatives</a>
-      <a href="https://drive.google.com/drive/u/1/folders/1J9pZOi5AHuBDrk8x6pwb16E1-Cb1VxAo?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card search-item" data-title="content folder">Content</a>
-      <div class="card search-item" data-title="content check" onclick="showView('contentCheckView')">Content Check</div>
+      <a href="https://docs.google.com/spreadsheets/d/13ubzW7K15O2tr_0ORf7Q1BwqJiCOWa1f9w8DL5WH1dc/edit?gid=305835903#gid=305835903" target="_blank" class="card">CRM Calendar</a>
+      <a href="https://ibet.atlassian.net/jira/core/projects/CAM/calendar" target="_blank" class="card">Jira</a>
+      <a href="https://ibet.atlassian.net/wiki/spaces/CRM/overview?homepageId=1257210061" target="_blank" class="card">Confluence</a>
+      <a href="https://ibet.atlassian.net/wiki/spaces/CRM/pages/1264549924/TEST+ACCOUNTS" target="_blank" class="card">Test Accounts</a>
+      <a href="https://drive.google.com/drive/u/1/folders/1dutX3R11Ff4IwYUPd1GCjM6ydqrq3EK4?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card">Creatives</a>
+      <a href="https://drive.google.com/drive/u/1/folders/1J9pZOi5AHuBDrk8x6pwb16E1-Cb1VxAo?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card">Content</a>
+      <div class="card" onclick="showView('contentCheckView')">Content Check</div>
     </div>
 
     <!-- VIEW: CONTENT CHECK -->
     <div class="grid view-section" id="contentCheckView">
-      <a href="https://docs.google.com/spreadsheets/d/1HwF60a9YbQkELwo8p4kVXTnCXzpdVvyCdDRObtCDsns/edit?gid=0#gid=0" target="_blank" class="card content-red search-item" data-title="content check red spreadsheet">RED</a>
-      <a href="https://docs.google.com/spreadsheets/d/1p9mx51FbyjXFxqwwghfppiChdIBQIHX2sSRqx5UCyNA/edit?gid=0#gid=0" target="_blank" class="card content-green search-item" data-title="content check green spreadsheet">GREEN</a>
+      <a href="https://docs.google.com/spreadsheets/d/1HwF60a9YbQkELwo8p4kVXTnCXzpdVvyCdDRObtCDsns/edit?gid=0#gid=0" target="_blank" class="card content-red">RED</a>
+      <a href="https://docs.google.com/spreadsheets/d/1p9mx51FbyjXFxqwwghfppiChdIBQIHX2sSRqx5UCyNA/edit?gid=0#gid=0" target="_blank" class="card content-green">GREEN</a>
     </div>
 
   </div>
 
   <script>
     let navigationHistory = ['mainView'];
-
-    // LIVE MALTA TIME (Europe/Malta)
-    function updateMaltaClock() {
-      const now = new Date();
-      const options = { timeZone: 'Europe/Malta', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-      document.getElementById('maltaClock').innerText = new Intl.DateTimeFormat([], options).format(now);
-    }
-    setInterval(updateMaltaClock, 1000);
-    updateMaltaClock();
 
     function toggleMenu() {
       document.getElementById('sidebar').classList.toggle('open');
@@ -768,17 +609,10 @@
       'apexView': { title: 'APEX Admin Portals', bg: '#1f070a', border: '#7f1d1d', swoosh1: 'rgba(239, 68, 68, 0.2)', swoosh2: 'rgba(239, 68, 68, 0.3)', color: '#fca5a5' },
       'casinoView': { title: 'Casino Operations & Setup', bg: '#0d0714', border: '#581c87', swoosh1: 'rgba(168, 85, 247, 0.2)', swoosh2: 'rgba(168, 85, 247, 0.3)', color: '#c084fc' },
       'crmToolsView': { title: 'CRM Workspace & Planning', bg: '#080203', border: '#4a0d17', swoosh1: 'rgba(220, 38, 38, 0.15)', swoosh2: 'rgba(220, 38, 38, 0.25)', color: '#fca5a5' },
-      'contentCheckView': { title: 'Content Check Verification', bg: '#1a0507', border: '#991b1b', swoosh1: 'rgba(239, 68, 68, 0.2)', swoosh2: 'rgba(34, 197, 94, 0.2)', color: '#fca5a5' },
-      'searchView': { title: 'Search Results', bg: '#120406', border: '#3b0a11', swoosh1: 'rgba(220, 38, 38, 0.15)', swoosh2: 'rgba(220, 38, 38, 0.25)', color: '#ffffff' }
+      'contentCheckView': { title: 'Content Check Verification', bg: '#1a0507', border: '#991b1b', swoosh1: 'rgba(239, 68, 68, 0.2)', swoosh2: 'rgba(34, 197, 94, 0.2)', color: '#fca5a5' }
     };
 
     function showView(viewId) {
-      if (viewId !== 'searchView') {
-        document.getElementById('searchInput').value = '';
-        document.getElementById('searchView').style.display = 'none';
-        document.getElementById('dashboardContent').style.display = 'block';
-      }
-
       document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
       document.getElementById(viewId).classList.add('active');
       
@@ -788,7 +622,7 @@
 
       document.getElementById('backBtn').style.display = viewId === 'mainView' ? 'none' : 'block';
 
-      // Update Banner Colors & Title
+      // Update Banner Colors & Title dynamically
       const cfg = viewConfigs[viewId] || viewConfigs['mainView'];
       const root = document.documentElement;
 
@@ -809,42 +643,6 @@
       } else {
         showView('mainView');
       }
-    }
-
-    // REAL-TIME COMPACT SEARCH FILTER
-    function filterLinks() {
-      const query = document.getElementById('searchInput').value.toLowerCase().trim();
-      const searchView = document.getElementById('searchView');
-      const dashboardContent = document.getElementById('dashboardContent');
-
-      if (query === '') {
-        searchView.style.display = 'none';
-        dashboardContent.style.display = 'block';
-        showView(navigationHistory[navigationHistory.length - 1] || 'mainView');
-        return;
-      }
-
-      dashboardContent.style.display = 'none';
-      searchView.style.display = 'grid';
-      searchView.innerHTML = '';
-
-      const allItems = document.querySelectorAll('.search-item');
-      let matches = 0;
-
-      allItems.forEach(item => {
-        const title = item.getAttribute('data-title') || item.innerText.toLowerCase();
-        if (title.includes(query)) {
-          const clone = item.cloneNode(true);
-          searchView.appendChild(clone);
-          matches++;
-        }
-      });
-
-      if (matches === 0) {
-        searchView.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: #64748b; padding: 2rem;">No matching tools found...</div>';
-      }
-
-      showView('searchView');
     }
   </script>
 
