@@ -513,10 +513,47 @@
         </div>
       </li>
 
-      <li><a href="#" onclick="showView('edgeView'); toggleMenu();">EDGE Admin Portals</a></li>
-      <li><a href="#" onclick="showView('apexView'); toggleMenu();">APEX Admin Portals</a></li>
-      <li><a href="#" onclick="showView('casinoView'); toggleMenu();">Casino Resources</a></li>
-      <li><a href="#" onclick="showView('crmToolsView'); toggleMenu();">CRM Tools</a></li>
+      <!-- ADMIN PORTALS DROPDOWN -->
+      <li>
+        <button class="dropdown-btn" onclick="toggleDropdown(this)">
+          Admin Portals
+          <span class="arrow">▼</span>
+        </button>
+        <div class="dropdown-container">
+          <a href="#" onclick="showView('edgeView'); toggleMenu();">EDGE Admin Portals</a>
+          <a href="#" onclick="showView('apexView'); toggleMenu();">APEX Admin Portals</a>
+        </div>
+      </li>
+
+      <!-- CASINO RESOURCES DROPDOWN -->
+      <li>
+        <button class="dropdown-btn" onclick="toggleDropdown(this)">
+          Casino Resources
+          <span class="arrow">▼</span>
+        </button>
+        <div class="dropdown-container">
+          <a href="https://docs.google.com/spreadsheets/d/1uoTSV1EpmYpohtTDhrEYyEZDEVvEMguNdyR4qMxXuIE/edit?gid=0#gid=0" target="_blank" onclick="toggleMenu();">Game Release</a>
+          <a href="https://docs.google.com/spreadsheets/d/1P-UGjrhh5FRh2vuyyGQFTJuBGiXoL8Ec_KPwmhUmcqo/edit?gid=335110277#gid=335110277" target="_blank" onclick="toggleMenu();">Country Testing</a>
+          <a href="https://drive.google.com/file/d/184CzdRUXEYmDOLNaMR9SBtTiN3JxziQN/view?ts=6a79c76f" target="_blank" onclick="toggleMenu();">PNG Game Configuration</a>
+        </div>
+      </li>
+
+      <!-- CRM TOOLS DROPDOWN -->
+      <li>
+        <button class="dropdown-btn" onclick="toggleDropdown(this)">
+          CRM Tools
+          <span class="arrow">▼</span>
+        </button>
+        <div class="dropdown-container">
+          <a href="https://docs.google.com/spreadsheets/d/13ubzW7K15O2tr_0ORf7Q1BwqJiCOWa1f9w8DL5WH1dc/edit?gid=305835903#gid=305835903" target="_blank" onclick="toggleMenu();">CRM Calendar</a>
+          <a href="https://ibet.atlassian.net/jira/core/projects/CAM/calendar" target="_blank" onclick="toggleMenu();">Jira Calendar</a>
+          <a href="https://ibet.atlassian.net/wiki/spaces/CRM/overview?homepageId=1257210061" target="_blank" onclick="toggleMenu();">Confluence</a>
+          <a href="https://ibet.atlassian.net/wiki/spaces/CRM/pages/1264549924/TEST+ACCOUNTS" target="_blank" onclick="toggleMenu();">Test Accounts</a>
+          <a href="https://drive.google.com/drive/u/1/folders/1dutX3R11Ff4IwYUPd1GCjM6ydqrq3EK4?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" onclick="toggleMenu();">Creatives</a>
+          <a href="https://drive.google.com/drive/u/1/folders/1J9pZOi5AHuBDrk8x6pwb16E1-Cb1VxAo?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" onclick="toggleMenu();">Content</a>
+          <a href="#" onclick="showView('contentCheckView'); toggleMenu();">Content Check</a>
+        </div>
+      </li>
     </ul>
   </div>
 
@@ -816,7 +853,6 @@
         const title = item.getAttribute('data-title') || item.innerText.toLowerCase();
         if (title.includes(query)) {
           const clone = item.cloneNode(true);
-          // Preserve click handler for tracking
           clone.onclick = function() { trackClick(item.innerText.trim(), item.href || '#'); };
           searchView.appendChild(clone);
           matches++;
@@ -849,14 +885,12 @@
       const pinsGrid = document.getElementById('quickPinsGrid');
       let counts = JSON.parse(localStorage.getItem('crm_link_clicks') || '{}');
       
-      // Sort clicked links by count
       let sortedClicked = Object.keys(counts)
         .map(key => ({ name: key, url: counts[key].url, count: counts[key].count }))
         .sort((a, b) => b.count - a.count);
 
       let pinsToDisplay = [...defaultPins];
 
-      // Append top clicked links if not already present
       sortedClicked.forEach(item => {
         if (!pinsToDisplay.some(p => p.name.toLowerCase() === item.name.toLowerCase()) && pinsToDisplay.length < 5) {
           pinsToDisplay.push({ name: item.name, url: item.url, icon: '🔥' });
@@ -871,7 +905,6 @@
       `).join('');
     }
 
-    // Attach click tracking to all cards automatically on load
     window.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.card').forEach(card => {
         if (card.href) {
