@@ -37,31 +37,79 @@
       background-attachment: fixed;
     }
 
-    /* TOP ANNOUNCEMENT BANNER */
-    .top-banner {
+    /* PROMINENT BANNER WITH BLACK GLOW & SWOOSH EFFECT */
+    .banner-container {
       width: 100%;
-      background: linear-gradient(90deg, #180305 0%, #3b0a11 50%, #180305 100%);
-      border-bottom: 1px solid #5c0f1b;
-      padding: 0.55rem 1rem;
-      text-align: center;
-      font-size: 0.82rem;
-      font-weight: 400;
-      letter-spacing: 1.5px;
-      color: #fca5a5;
-      text-transform: uppercase;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      background: #050102;
+      border-bottom: 1px solid #4a0d17;
+      padding: 1.8rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.8);
     }
 
-    /* TOP HEADER & HAMBURGER MENU */
+    /* SWOOSH LIGHT ANIMATION */
+    .banner-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg, 
+        transparent 0%, 
+        rgba(220, 38, 38, 0.12) 30%, 
+        rgba(0, 0, 0, 0.8) 50%, 
+        rgba(220, 38, 38, 0.18) 70%, 
+        transparent 100%
+      );
+      animation: swoosh 7s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+    @keyframes swoosh {
+      0% { left: -100%; }
+      50% { left: 100%; }
+      100% { left: 100%; }
+    }
+
+    .banner-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .banner-title {
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: #ffffff;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      text-shadow: 0 0 15px rgba(220, 38, 38, 0.4), 0 0 30px rgba(0, 0, 0, 0.9);
+    }
+
+    .banner-subtitle {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #991b1b;
+      text-transform: uppercase;
+      margin-top: 0.3rem;
+    }
+
+    /* TOP HEADER BAR FOR MENU BUTTON */
     .header-bar {
       width: 100%;
       max-width: 900px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin: 2rem 0 2.5rem 0;
-      padding: 0 1rem 0.8rem 1rem;
-      border-bottom: 1px solid var(--card-border);
+      justify-content: flex-start;
+      margin: 1.5rem 0 1.5rem 0;
+      padding: 0 1rem;
     }
 
     .menu-toggle {
@@ -70,13 +118,12 @@
       color: #ef4444;
       font-size: 1.1rem;
       padding: 0.4rem 0.7rem;
-      border-radius: 4px; /* Sleek boxy style */
+      border-radius: 4px;
       cursor: pointer;
       transition: all 0.2s ease;
       display: flex;
       align-items: center;
       justify-content: center;
-      letter-spacing: -1px;
     }
 
     .menu-toggle:hover {
@@ -85,30 +132,20 @@
       box-shadow: 0 0 8px var(--red-glow);
     }
 
-    .header-title {
-      font-size: 1.5rem;
-      font-weight: 300; /* Slimmer, toned down */
-      color: #ffffff;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      text-shadow: 0 0 10px var(--red-glow);
-    }
-
-    .header-placeholder { width: 45px; } /* Balances header centering */
-
     /* SIDEBAR SLIDE-OUT */
     .sidebar {
       position: fixed;
       top: 0;
-      left: -280px;
-      width: 280px;
+      left: -300px;
+      width: 300px;
       height: 100%;
       background: #0d0304;
       border-right: 1px solid var(--card-border);
-      box-shadow: 5px 0 25px rgba(0, 0, 0, 0.8);
+      box-shadow: 5px 0 25px rgba(0, 0, 0, 0.85);
       transition: left 0.3s ease;
       z-index: 100;
-      padding: 2rem 1.5rem;
+      padding: 2rem 1.2rem;
+      overflow-y: auto;
     }
 
     .sidebar.open { left: 0; }
@@ -140,20 +177,59 @@
     .close-btn:hover { color: #ef4444; }
 
     .sidebar-menu { list-style: none; }
-    .sidebar-menu li { margin-bottom: 0.8rem; }
-    .sidebar-menu a {
+    .sidebar-menu li { margin-bottom: 0.6rem; }
+    
+    .sidebar-menu a, .dropdown-btn {
       color: #fca5a5;
       text-decoration: none;
       font-size: 0.9rem;
       font-weight: 300;
-      display: block;
-      padding: 0.6rem 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0.64rem 0.8rem;
       border-radius: 4px;
       transition: background 0.2s;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      text-align: left;
     }
-    .sidebar-menu a:hover {
+
+    .sidebar-menu a:hover, .dropdown-btn:hover {
       background: #2a080c;
       color: #ffffff;
+    }
+
+    /* DROPDOWN MENU ACCORDION */
+    .dropdown-container {
+      display: none;
+      background-color: #060102;
+      padding-left: 0.8rem;
+      margin-top: 0.3rem;
+      border-left: 1px solid #3b0a11;
+      border-radius: 0 0 4px 4px;
+    }
+
+    .dropdown-container a {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      padding: 0.5rem 0.8rem;
+    }
+
+    .dropdown-container a:hover {
+      color: #ef4444;
+      background: #180305;
+    }
+
+    .arrow {
+      font-size: 0.7rem;
+      transition: transform 0.2s ease;
+    }
+
+    .dropdown-btn.active .arrow {
+      transform: rotate(180deg);
     }
 
     /* OVERLAY WHEN SIDEBAR IS OPEN */
@@ -190,7 +266,7 @@
       padding: 1.2rem;
       text-decoration: none;
       color: #cbd5e1;
-      font-weight: 400; /* Slim, clean typography */
+      font-weight: 400;
       font-size: 0.95rem;
       letter-spacing: 0.5px;
       display: flex;
@@ -226,20 +302,37 @@
 </head>
 <body>
 
-  <!-- TOP BANNER -->
-  <div class="top-banner">
-    CRM Control Dashboard
+  <!-- PROMINENT BANNER -->
+  <div class="banner-container">
+    <div class="banner-content">
+      <h1 class="banner-title">CRM</h1>
+      <div class="banner-subtitle">Central Workspace</div>
+    </div>
   </div>
 
   <!-- SIDEBAR & OVERLAY -->
   <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
   <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
-      <span class="sidebar-title">Menu & Settings</span>
+      <span class="sidebar-title">Menu & Resources</span>
       <button class="close-btn" onclick="toggleMenu()">&times;</button>
     </div>
     <ul class="sidebar-menu">
       <li><a href="#">Main Dashboard</a></li>
+      
+      <!-- 55BET CONTENT DROPDOWN -->
+      <li>
+        <button class="dropdown-btn" onclick="toggleDropdown(this)">
+          55Bet Content
+          <span class="arrow">▼</span>
+        </button>
+        <div class="dropdown-container">
+          <a href="https://docs.google.com/spreadsheets/d/1XK5zsltb_1meqUC1utJcM5KZmz4egPOqPgOZgxvULe0/edit?gid=10001#gid=10001" target="_blank">Reactivation Content</a>
+          <a href="https://docs.google.com/spreadsheets/d/18KG8Fm0v1wibKfogBq-2ZWwMsOaNQUiQm-J69BDNvy8/edit?gid=937661406#gid=937661406" target="_blank">Game of the Week</a>
+          <a href="https://docs.google.com/spreadsheets/d/1-mC3_omjUD2JeYjaFKIM8JPxe82aQyNqlH6NlIeQAxA/edit?gid=10001#gid=10001" target="_blank">Payday</a>
+        </div>
+      </li>
+
       <li><a href="https://admin.edgegaming.io/admin/qbet/homepage" target="_blank">Green Admin</a></li>
       <li><a href="https://admin.apexplatform.io/login" target="_blank">Red Admin</a></li>
       <li><a href="https://ibet.atlassian.net/jira/core/projects/CAM/calendar" target="_blank">Jira Calendar</a></li>
@@ -249,11 +342,9 @@
   <!-- MAIN CONTENT CONTAINER -->
   <div class="container">
     
-    <!-- HEADER BAR WITH 3-BAR MENU -->
+    <!-- HEADER BAR WITH 3-BAR MENU BUTTON -->
     <div class="header-bar">
       <button class="menu-toggle" onclick="toggleMenu()" title="Open Menu">☰</button>
-      <h1 class="header-title">CRM</h1>
-      <div class="header-placeholder"></div>
     </div>
 
     <!-- BUTTON GRID -->
@@ -298,6 +389,16 @@
       const overlay = document.getElementById('overlay');
       sidebar.classList.toggle('open');
       overlay.classList.toggle('active');
+    }
+
+    function toggleDropdown(btn) {
+      btn.classList.toggle('active');
+      const container = btn.nextElementSibling;
+      if (container.style.display === "block") {
+        container.style.display = "none";
+      } else {
+        container.style.display = "block";
+      }
     }
   </script>
 
