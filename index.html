@@ -7,7 +7,7 @@
   <!-- Sleek Modern Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
     /* RESET & CORE VARIABLES */
@@ -19,7 +19,6 @@
       --card-border: #3b0a11;
       --red-accent: #dc2626;
       --red-glow: rgba(220, 38, 38, 0.35);
-      --red-bright-glow: rgba(239, 68, 68, 0.5);
       --green-accent: #22c55e;
       --green-glow: rgba(34, 197, 94, 0.35);
       --text-color: #e2e8f0;
@@ -37,21 +36,29 @@
       background-attachment: fixed;
     }
 
-    /* PROMINENT BANNER WITH BLACK GLOW & SWOOSH EFFECT */
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 900px;
+      width: 100%;
+      padding: 0 1rem;
+    }
+
+    /* ROUNDED BOX BANNER WITH SWOOSH EFFECT */
     .banner-container {
       width: 100%;
-      background: #050102;
-      border-bottom: 1px solid #4a0d17;
-      padding: 1.8rem 1rem;
+      background: #080203;
+      border: 1px solid #4a0d17;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.8);
+      margin: 1.5rem 0 1rem 0;
     }
 
-    /* SWOOSH LIGHT ANIMATION */
     .banner-container::before {
       content: "";
       position: absolute;
@@ -62,12 +69,12 @@
       background: linear-gradient(
         90deg, 
         transparent 0%, 
-        rgba(220, 38, 38, 0.12) 30%, 
+        rgba(220, 38, 38, 0.15) 30%, 
         rgba(0, 0, 0, 0.8) 50%, 
-        rgba(220, 38, 38, 0.18) 70%, 
+        rgba(220, 38, 38, 0.2) 70%, 
         transparent 100%
       );
-      animation: swoosh 7s infinite ease-in-out;
+      animation: swoosh 6s infinite ease-in-out;
       pointer-events: none;
     }
 
@@ -93,23 +100,21 @@
     }
 
     .banner-subtitle {
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       font-weight: 400;
-      letter-spacing: 2px;
+      letter-spacing: 2.5px;
       color: #991b1b;
       text-transform: uppercase;
-      margin-top: 0.3rem;
+      margin-top: 0.4rem;
     }
 
-    /* TOP HEADER BAR FOR MENU BUTTON */
+    /* HEADER BAR FOR 3-BAR MENU */
     .header-bar {
       width: 100%;
-      max-width: 900px;
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      margin: 1.5rem 0 1.5rem 0;
-      padding: 0 1rem;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
     }
 
     .menu-toggle {
@@ -118,7 +123,7 @@
       color: #ef4444;
       font-size: 1.1rem;
       padding: 0.4rem 0.7rem;
-      border-radius: 4px;
+      border-radius: 6px;
       cursor: pointer;
       transition: all 0.2s ease;
       display: flex;
@@ -130,6 +135,24 @@
       background: #2a080c;
       border-color: #dc2626;
       box-shadow: 0 0 8px var(--red-glow);
+    }
+
+    .back-btn {
+      background: #180305;
+      border: 1px solid #4a0d17;
+      color: #fca5a5;
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: none;
+      transition: all 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background: #2a080c;
+      color: #ffffff;
+      border-color: #ef4444;
     }
 
     /* SIDEBAR SLIDE-OUT */
@@ -223,14 +246,8 @@
       background: #180305;
     }
 
-    .arrow {
-      font-size: 0.7rem;
-      transition: transform 0.2s ease;
-    }
-
-    .dropdown-btn.active .arrow {
-      transform: rotate(180deg);
-    }
+    .arrow { font-size: 0.7rem; transition: transform 0.2s ease; }
+    .dropdown-btn.active .arrow { transform: rotate(180deg); }
 
     /* OVERLAY WHEN SIDEBAR IS OPEN */
     .overlay {
@@ -245,24 +262,18 @@
     }
     .overlay.active { display: block; }
 
-    /* CONTAINER & GRID */
-    .container {
-      max-width: 900px;
-      width: 100%;
-      padding: 0 1rem;
-    }
-
+    /* BUTTON GRID */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 1.2rem;
     }
 
-    /* LINK BUTTON STYLES */
+    /* DEFAULT LINK BUTTON STYLES */
     .card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 6px;
+      border-radius: 8px;
       padding: 1.2rem;
       text-decoration: none;
       color: #cbd5e1;
@@ -275,10 +286,10 @@
       text-align: center;
       transition: all 0.25s ease;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-      min-height: 75px;
+      min-height: 80px;
+      cursor: pointer;
     }
 
-    /* DEFAULT RED GLOW HOVER */
     .card:hover {
       transform: translateY(-3px);
       border-color: var(--red-accent);
@@ -287,28 +298,128 @@
       background: #1a0507;
     }
 
-    /* GREEN ADMIN BUTTON GLOW */
-    .card.green-admin {
+    /* MAIN GREEN ADMIN BUTTON */
+    .card.green-admin-trigger {
       border-color: #14532d;
       color: #86efac;
     }
-    .card.green-admin:hover {
+    .card.green-admin-trigger:hover {
       border-color: var(--green-accent);
       color: #ffffff;
       box-shadow: 0 0 12px var(--green-glow), 0 0 25px rgba(34, 197, 94, 0.15);
       background: #042110;
     }
+
+    /* CUSTOM BRAND STYLES (SUB-VIEW) */
+    
+    /* 1. QBET: GREEN */
+    .brand-qbet {
+      border-color: #166534;
+      color: #4ade80;
+    }
+    .brand-qbet:hover {
+      border-color: #22c55e;
+      box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+      background: #052e16;
+      color: #ffffff;
+    }
+
+    /* 2. MANGA CASINO: WHITE */
+    .brand-manga {
+      border-color: #94a3b8;
+      color: #f8fafc;
+    }
+    .brand-manga:hover {
+      border-color: #ffffff;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      background: #1e293b;
+      color: #ffffff;
+    }
+
+    /* 3. 30BET: BLUE */
+    .brand-30bet {
+      border-color: #1e40af;
+      color: #60a5fa;
+    }
+    .brand-30bet:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+      background: #0f172a;
+      color: #ffffff;
+    }
+
+    /* 4. GQBET: BLACK & GOLD */
+    .brand-gqbet {
+      border-color: #854d0e;
+      color: #facc15;
+      background: #050300;
+    }
+    .brand-gqbet:hover {
+      border-color: #eab308;
+      box-shadow: 0 0 15px rgba(234, 179, 8, 0.4);
+      background: #1c1300;
+      color: #ffffff;
+    }
+
+    /* 5. 55BET: SPARKLY RED & WHITE */
+    .brand-55bet {
+      border-color: #ef4444;
+      background: linear-gradient(135deg, #2b0407 0%, #0a0203 100%);
+      color: #ffffff;
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+    }
+    .brand-55bet::after {
+      content: "✨";
+      position: absolute;
+      right: 12px;
+      top: 10px;
+      font-size: 0.9rem;
+      animation: pulseSparkle 1.5s infinite alternate;
+    }
+    .brand-55bet:hover {
+      border-color: #f87171;
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.6), 0 0 30px rgba(255, 255, 255, 0.2);
+      transform: translateY(-4px) scale(1.02);
+    }
+
+    /* 6. HOWZIT: SPARKLY WHITE & GOLD */
+    .brand-howzit {
+      border-color: #eab308;
+      background: linear-gradient(135deg, #ffffff 0%, #fef08a 100%);
+      color: #000000;
+      font-weight: 700;
+      position: relative;
+      box-shadow: 0 0 10px rgba(234, 179, 8, 0.4);
+    }
+    .brand-howzit::after {
+      content: "✨";
+      position: absolute;
+      right: 12px;
+      top: 10px;
+      font-size: 0.9rem;
+      animation: pulseSparkle 1.5s infinite alternate;
+    }
+    .brand-howzit:hover {
+      border-color: #ca8a04;
+      box-shadow: 0 0 20px rgba(234, 179, 8, 0.8), 0 0 25px rgba(255, 255, 255, 0.8);
+      transform: translateY(-4px) scale(1.02);
+      color: #000000;
+    }
+
+    @keyframes pulseSparkle {
+      0% { opacity: 0.3; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1.2); }
+    }
+
+    /* VIEW VISIBILITY TOGGLES */
+    .view-section { display: none; }
+    .view-section.active { display: grid; }
   </style>
 </head>
 <body>
-
-  <!-- PROMINENT BANNER -->
-  <div class="banner-container">
-    <div class="banner-content">
-      <h1 class="banner-title">CRM</h1>
-      <div class="banner-subtitle">Central Workspace</div>
-    </div>
-  </div>
 
   <!-- SIDEBAR & OVERLAY -->
   <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
@@ -318,7 +429,7 @@
       <button class="close-btn" onclick="toggleMenu()">&times;</button>
     </div>
     <ul class="sidebar-menu">
-      <li><a href="#">Main Dashboard</a></li>
+      <li><a href="#" onclick="showMainView(); toggleMenu();">Main Dashboard</a></li>
       
       <!-- 55BET CONTENT DROPDOWN -->
       <li>
@@ -333,7 +444,7 @@
         </div>
       </li>
 
-      <li><a href="https://admin.edgegaming.io/admin/qbet/homepage" target="_blank">Green Admin</a></li>
+      <li><a href="#" onclick="showGreenAdminView(); toggleMenu();">Green Admin Brands</a></li>
       <li><a href="https://admin.apexplatform.io/login" target="_blank">Red Admin</a></li>
       <li><a href="https://ibet.atlassian.net/jira/core/projects/CAM/calendar" target="_blank">Jira Calendar</a></li>
     </ul>
@@ -341,46 +452,91 @@
 
   <!-- MAIN CONTENT CONTAINER -->
   <div class="container">
+
+    <!-- ROUNDED BANNER -->
+    <div class="banner-container">
+      <div class="banner-content">
+        <h1 class="banner-title" id="bannerTitle">CRM</h1>
+        <div class="banner-subtitle" id="bannerSubtitle">Brand & Operations Portal</div>
+      </div>
+    </div>
     
-    <!-- HEADER BAR WITH 3-BAR MENU BUTTON -->
+    <!-- HEADER CONTROLS BAR -->
     <div class="header-bar">
       <button class="menu-toggle" onclick="toggleMenu()" title="Open Menu">☰</button>
+      <button class="back-btn" id="backBtn" onclick="showMainView()">← Back to Dashboard</button>
     </div>
 
-    <!-- BUTTON GRID -->
-    <div class="grid">
+    <!-- VIEW 1: MAIN DASHBOARD -->
+    <div class="grid view-section active" id="mainView">
       
-      <!-- 1. GREEN ADMIN -->
-      <a href="https://admin.edgegaming.io/admin/qbet/homepage" target="_blank" class="card green-admin">
+      <!-- GREEN ADMIN TRIGGER (OPENS SUB-VIEW) -->
+      <div class="card green-admin-trigger" onclick="showGreenAdminView()">
         GREEN ADMIN
-      </a>
+      </div>
 
-      <!-- 2. RED ADMIN -->
+      <!-- RED ADMIN -->
       <a href="https://admin.apexplatform.io/login" target="_blank" class="card">
         RED ADMIN
       </a>
 
-      <!-- 3. GAME RELEASE -->
+      <!-- GAME RELEASE -->
       <a href="https://docs.google.com/spreadsheets/d/1uoTSV1EpmYpohtTDhrEYyEZDEVvEMguNdyR4qMxXuIE/edit?gid=0#gid=0" target="_blank" class="card">
         GAME RELEASE
       </a>
 
-      <!-- 4. COUNTRY TESTING -->
+      <!-- COUNTRY TESTING -->
       <a href="https://docs.google.com/spreadsheets/d/1P-UGjrhh5FRh2vuyyGQFTJuBGiXoL8Ec_KPwmhUmcqo/edit?gid=335110277#gid=335110277" target="_blank" class="card">
         COUNTRY TESTING
       </a>
 
-      <!-- 5. CRM CALENDAR -->
+      <!-- CRM CALENDAR -->
       <a href="https://docs.google.com/spreadsheets/d/13ubzW7K15O2tr_0ORf7Q1BwqJiCOWa1f9w8DL5WH1dc/edit?gid=305835903#gid=305835903" target="_blank" class="card">
         CRM CALENDAR
       </a>
 
-      <!-- 6. JIRA -->
+      <!-- JIRA -->
       <a href="https://ibet.atlassian.net/jira/core/projects/CAM/calendar" target="_blank" class="card">
         JIRA
       </a>
 
     </div>
+
+    <!-- VIEW 2: GREEN ADMIN BRANDS -->
+    <div class="grid view-section" id="greenAdminView">
+      
+      <!-- QBET -->
+      <a href="https://admin.edgegaming.io/admin/qbet/homepage" target="_blank" class="card brand-qbet">
+        Qbet Admin
+      </a>
+
+      <!-- MANGA CASINO -->
+      <a href="https://admin.edgegaming.io/admin/manga/homepage" target="_blank" class="card brand-manga">
+        Manga Casino Admin
+      </a>
+
+      <!-- 30BET -->
+      <a href="https://admin.edgegaming.io/admin/30bet/homepage" target="_blank" class="card brand-30bet">
+        30bet Admin
+      </a>
+
+      <!-- GQBET -->
+      <a href="https://admin.edgegaming.io/admin/gqbet/homepage" target="_blank" class="card brand-gqbet">
+        GQbet Admin
+      </a>
+
+      <!-- 55BET (SPARKLY) -->
+      <a href="https://admin.edgegaming.io/admin/55bet/homepage" target="_blank" class="card brand-55bet">
+        55bet Admin
+      </a>
+
+      <!-- HOWZIT (SPARKLY) -->
+      <a href="https://admin.edgegaming.io/admin/howzit/homepage" target="_blank" class="card brand-howzit">
+        Howzit Admin
+      </a>
+
+    </div>
+
   </div>
 
   <script>
@@ -399,6 +555,20 @@
       } else {
         container.style.display = "block";
       }
+    }
+
+    function showGreenAdminView() {
+      document.getElementById('mainView').classList.remove('active');
+      document.getElementById('greenAdminView').classList.add('active');
+      document.getElementById('backBtn').style.display = 'block';
+      document.getElementById('bannerSubtitle').innerText = "Green Admin Portals";
+    }
+
+    function showMainView() {
+      document.getElementById('greenAdminView').classList.remove('active');
+      document.getElementById('mainView').classList.add('active');
+      document.getElementById('backBtn').style.display = 'none';
+      document.getElementById('bannerSubtitle').innerText = "Brand & Operations Portal";
     }
   </script>
 
