@@ -484,28 +484,98 @@
 
     <!-- VIEW 2: BRANDS OVERVIEW -->
     <div class="grid view-section" id="brandsView">
-      <div class="card brand-qbet" onclick="showBrandDetail('Qbet')">Qbet</div>
-      <div class="card brand-manga" onclick="showBrandDetail('Manga Casino')">Manga Casino</div>
-      <div class="card brand-30bet" onclick="showBrandDetail('30bet')">30bet</div>
-      <div class="card brand-gqbet" onclick="showBrandDetail('GQbet')">GQbet</div>
-      <div class="card brand-55bet" onclick="showBrandDetail('55bet')">55bet</div>
-      <div class="card brand-howzit" onclick="showBrandDetail('Howzit')">Howzit</div>
+      <div class="card brand-qbet" onclick="showView('brandQbetView')">Qbet</div>
+      <div class="card brand-manga" onclick="showView('brandMangaView')">Manga Casino</div>
+      <div class="card brand-30bet" onclick="showView('brand30betView')">30bet</div>
+      <div class="card brand-gqbet" onclick="showView('brandGqbetView')">GQbet</div>
+      <div class="card brand-55bet" onclick="showView('brand55betView')">55bet</div>
+      <div class="card brand-howzit" onclick="showView('brandHowzitView')">Howzit</div>
+      <div class="card" onclick="showView('brand7abetView')">7Abet</div>
+      <div class="card" onclick="showView('brandBvbetView')">BVBet</div>
       
       <!-- SUBTLE DIVISION LINE -->
       <div class="section-divider"></div>
       
-      <div class="card brand-ibet" onclick="showBrandDetail('iBet')">iBet</div>
-      <div class="card brand-arctic" onclick="showBrandDetail('Arctic Casino')">Arctic Casino</div>
+      <div class="card brand-ibet" onclick="showView('brandIbetView')">iBet</div>
+      <div class="card brand-arctic" onclick="showView('brandArcticView')">Arctic Casino</div>
     </div>
 
-    <!-- VIEW 3: BRAND DETAIL (PLACEHOLDER FOR YOUR LINKS LATER) -->
-    <div class="grid view-section" id="brandDetailView">
-      <div class="card">Tool / Link 1 (Coming Soon)</div>
-      <div class="card">Tool / Link 2 (Coming Soon)</div>
-      <div class="card">Tool / Link 3 (Coming Soon)</div>
+    <!-- BRAND DETAIL VIEWS -->
+    
+    <!-- QBET -->
+    <div class="grid view-section" id="brandQbetView">
+      <a href="https://www.qbet.com/en-UN" target="_blank" class="card">Website</a>
+      <a href="https://drive.google.com/drive/u/1/folders/1I9SxublbQZpzD7eVCYiY6xsQc1tSQfVH?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card">Creatives</a>
+      <a href="https://admin.edgegaming.io/admin/qbet/homepage" target="_blank" class="card brand-qbet">Admin</a>
     </div>
 
-    <!-- VIEW 4: EDGE BRANDS -->
+    <!-- MANGA CASINO -->
+    <div class="grid view-section" id="brandMangaView">
+      <a href="https://www.mangacasino.com/en-UN" target="_blank" class="card">Website</a>
+      <a href="https://drive.google.com/drive/u/1/folders/19ovaY1VoGjTMNAfWuVdkdLwib8IykQ6x?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card">Creatives</a>
+      <a href="https://admin.edgegaming.io/admin/manga/homepage" target="_blank" class="card brand-manga">Admin</a>
+    </div>
+
+    <!-- 30BET -->
+    <div class="grid view-section" id="brand30betView">
+      <a href="https://www.30bet.com/en-UN" target="_blank" class="card">Website</a>
+      <a href="https://drive.google.com/drive/u/1/folders/1U5zut8q8B-4mbBG2zWznqjdrg545IhoO?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card">Creatives</a>
+      <a href="https://admin.edgegaming.io/admin/30bet/homepage" target="_blank" class="card brand-30bet">Admin</a>
+    </div>
+
+    <!-- GQBET -->
+    <div class="grid view-section" id="brandGqbetView">
+      <a href="https://www.gqbet.vip/en-UN/" target="_blank" class="card">Website</a>
+      <a href="https://drive.google.com/drive/u/1/folders/1XwRBlNhQQP-FtdA4qMAMrH2bSSs6fVod?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card">Creatives</a>
+      <a href="https://admin.edgegaming.io/admin/gqbet/homepage" target="_blank" class="card brand-gqbet">Admin</a>
+    </div>
+
+    <!-- 55BET -->
+    <div class="grid view-section" id="brand55betView">
+      <a href="https://www.55bet.com/en-UN" target="_blank" class="card">Website</a>
+      <a href="https://drive.google.com/drive/u/1/folders/1AW2dMIgxqbQ1nYpi2AhMRh2f3_JR2zMQ?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card">Creatives</a>
+      <a href="https://admin.edgegaming.io/admin/55bet/homepage" target="_blank" class="card brand-55bet">Admin</a>
+      <a href="https://cms.55bet.com/structure" target="_blank" class="card">CMS</a>
+    </div>
+
+    <!-- HOWZIT -->
+    <div class="grid view-section" id="brandHowzitView">
+      <a href="https://www.howzitcasino.com/en-UN/" target="_blank" class="card">Website</a>
+      <a href="https://drive.google.com/drive/u/1/folders/1MzEXb_kvnvoxJgEGG-xgAUHaaQwMUlcZ?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card">Creatives</a>
+      <a href="https://admin.edgegaming.io/admin/howzit/homepage" target="_blank" class="card brand-howzit">Admin</a>
+    </div>
+
+    <!-- 7ABET -->
+    <div class="grid view-section" id="brand7abetView">
+      <a href="https://www.7abet.com/en-UN" target="_blank" class="card">Website</a>
+      <a href="https://drive.google.com/drive/u/1/folders/1qVHnIelzjHku3Zyt-MGipPRlWZVc41hN?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card">Creatives</a>
+    </div>
+
+    <!-- BVBET -->
+    <div class="grid view-section" id="brandBvbetView">
+      <a href="https://www.bvbet.com/en-UN" target="_blank" class="card">Website</a>
+      <a href="https://drive.google.com/drive/u/1/folders/1KLq1oVoGMhgvJmnFwsYh94QJI8zsj8Oh?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card">Creatives</a>
+    </div>
+
+    <!-- IBET -->
+    <div class="grid view-section" id="brandIbetView">
+      <a href="https://www.ibet.com/en-UN" target="_blank" class="card">Website</a>
+      <a href="https://drive.google.com/drive/u/1/folders/1RLENkMYg_hU0ZrR_ke31cKU1jLq1y07F?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card">Creatives</a>
+      <a href="https://admin.apexplatform.io/admin/ibet/homepage" target="_blank" class="card brand-ibet">Admin</a>
+      <a href="https://cms.ibet.com/structure" target="_blank" class="card">CMS</a>
+      <a href="https://ibetcrm.ft-crm.com/v2/" target="_blank" class="card">Fastrack</a>
+    </div>
+
+    <!-- ARCTIC CASINO -->
+    <div class="grid view-section" id="brandArcticView">
+      <a href="https://www.arcticcasino.com/en-UN" target="_blank" class="card">Website</a>
+      <a href="https://drive.google.com/drive/u/1/folders/1slR-bZfMUAVLw_3EWR91kChB7wgRsxiY?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card">Creatives</a>
+      <a href="https://admin.apexplatform.io/admin/arctic/homepage" target="_blank" class="card brand-arctic">Admin</a>
+      <a href="https://cms.arcticcasino.com/structure" target="_blank" class="card">CMS</a>
+      <a href="https://ibetcrm.ft-crm.com/v2/" target="_blank" class="card">Fastrack</a>
+    </div>
+
+    <!-- VIEW: EDGE BRANDS -->
     <div class="grid view-section" id="edgeView">
       <a href="https://admin.edgegaming.io/admin/qbet/homepage" target="_blank" class="card brand-qbet">Qbet Admin</a>
       <a href="https://admin.edgegaming.io/admin/manga/homepage" target="_blank" class="card brand-manga">Manga Casino Admin</a>
@@ -515,20 +585,20 @@
       <a href="https://admin.edgegaming.io/admin/howzit/homepage" target="_blank" class="card brand-howzit">Howzit Admin</a>
     </div>
 
-    <!-- VIEW 5: APEX BRANDS -->
+    <!-- VIEW: APEX BRANDS -->
     <div class="grid view-section" id="apexView">
       <a href="https://admin.apexplatform.io/admin/ibet/homepage" target="_blank" class="card brand-ibet">iBet Admin</a>
       <a href="https://admin.apexplatform.io/admin/arctic/homepage" target="_blank" class="card brand-arctic">Arctic Casino Admin</a>
     </div>
 
-    <!-- VIEW 6: CASINO RESOURCES -->
+    <!-- VIEW: CASINO RESOURCES -->
     <div class="grid view-section" id="casinoView">
       <a href="https://docs.google.com/spreadsheets/d/1uoTSV1EpmYpohtTDhrEYyEZDEVvEMguNdyR4qMxXuIE/edit?gid=0#gid=0" target="_blank" class="card">Game Release</a>
       <a href="https://docs.google.com/spreadsheets/d/1P-UGjrhh5FRh2vuyyGQFTJuBGiXoL8Ec_KPwmhUmcqo/edit?gid=335110277#gid=335110277" target="_blank" class="card">Country Testing</a>
       <a href="https://drive.google.com/file/d/184CzdRUXEYmDOLNaMR9SBtTiN3JxziQN/view?ts=6a79c76f" target="_blank" class="card">PNG Game Configuration</a>
     </div>
 
-    <!-- VIEW 7: CRM TOOLS -->
+    <!-- VIEW: CRM TOOLS -->
     <div class="grid view-section" id="crmToolsView">
       <a href="https://docs.google.com/spreadsheets/d/13ubzW7K15O2tr_0ORf7Q1BwqJiCOWa1f9w8DL5WH1dc/edit?gid=305835903#gid=305835903" target="_blank" class="card">CRM Calendar</a>
       <a href="https://ibet.atlassian.net/jira/core/projects/CAM/calendar" target="_blank" class="card">Jira</a>
@@ -557,6 +627,16 @@
     const subtitles = {
       'mainView': 'Brand & Operations Portal',
       'brandsView': 'All Brands Hub',
+      'brandQbetView': 'Qbet Workspace',
+      'brandMangaView': 'Manga Casino Workspace',
+      'brand30betView': '30bet Workspace',
+      'brandGqbetView': 'GQbet Workspace',
+      'brand55betView': '55bet Workspace',
+      'brandHowzitView': 'Howzit Workspace',
+      'brand7abetView': '7Abet Workspace',
+      'brandBvbetView': 'BVBet Workspace',
+      'brandIbetView': 'iBet Workspace',
+      'brandArcticView': 'Arctic Casino Workspace',
       'edgeView': 'EDGE Admin Portals',
       'apexView': 'APEX Admin Portals',
       'casinoView': 'Casino Operations & Setup',
@@ -573,15 +653,6 @@
 
       document.getElementById('backBtn').style.display = viewId === 'mainView' ? 'none' : 'block';
       document.getElementById('bannerSubtitle').innerText = subtitles[viewId] || 'Brand & Operations Portal';
-    }
-
-    function showBrandDetail(brandName) {
-      document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
-      document.getElementById('brandDetailView').classList.add('active');
-      
-      navigationHistory.push('brandDetailView');
-      document.getElementById('backBtn').style.display = 'block';
-      document.getElementById('bannerSubtitle').innerText = brandName + ' Workspace';
     }
 
     function goBack() {
