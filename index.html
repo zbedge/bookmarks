@@ -122,10 +122,10 @@
       background: var(--banner-bg);
       border: 1px solid var(--banner-border);
       border-radius: 16px;
-      padding: 1.8rem 1.5rem;
+      padding: 1.8rem 2rem;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       position: relative;
       overflow: hidden;
       box-shadow: 0 8px 32px rgba(0,0,0,0.7);
@@ -162,7 +162,7 @@
     .banner-content {
       position: relative;
       z-index: 2;
-      text-align: center;
+      text-align: left;
     }
 
     .banner-title {
@@ -182,6 +182,49 @@
       text-transform: uppercase;
       text-shadow: 0 0 12px var(--theme-glow);
       transition: color 0.4s ease;
+    }
+
+    /* GLOWING MASCOT CHARACTER */
+    .mascot-container {
+      position: relative;
+      z-index: 3;
+      width: 68px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s ease, transform 0.2s ease;
+    }
+
+    .mascot-container.hidden {
+      display: none;
+    }
+
+    .mascot-svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 8px var(--banner-sub-color));
+      transition: filter 0.4s ease;
+    }
+
+    .mascot-head {
+      transition: transform 0.08s ease-out;
+      transform-origin: 32px 36px;
+    }
+
+    .mascot-pupil {
+      fill: #ffffff;
+      transition: transform 0.05s ease-out;
+    }
+
+    .mascot-container:hover .mascot-svg {
+      animation: earWiggle 0.5s ease-in-out;
+    }
+
+    @keyframes earWiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-6deg); }
+      75% { transform: rotate(6deg); }
     }
 
     /* COMPACT INTEGRATED TOP BAR WITH FROSTED GLASS */
@@ -652,6 +695,60 @@
       letter-spacing: 0.5px;
     }
 
+    .settings-option-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      margin-bottom: 1rem;
+      color: #cbd5e1;
+      font-size: 0.9rem;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(255, 255, 255, 0.15);
+      transition: .3s;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .toggle-slider {
+      background-color: var(--theme-accent);
+    }
+
+    input:checked + .toggle-slider:before {
+      transform: translateX(20px);
+    }
+
     .theme-options-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -761,13 +858,24 @@
     </ul>
   </div>
 
-  <!-- THEME SETTINGS MODAL -->
+  <!-- THEME & PREFERENCES SETTINGS MODAL -->
   <div class="modal-overlay" id="settingsModal">
     <div class="modal-box">
       <div class="modal-header">
-        <span class="modal-title">🎨 Choose Website Theme</span>
+        <span class="modal-title">Settings</span>
         <button class="close-btn" onclick="toggleSettings()">&times;</button>
       </div>
+
+      <!-- MASCOT TOGGLE OPTION -->
+      <div class="settings-option-row">
+        <span>Enable Banner Mascot (Luna)</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="mascotToggle" onchange="toggleMascotVisibility(this.checked)" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div style="font-size: 0.85rem; font-weight: 600; color: #cbd5e1; margin-bottom: 0.8rem;">Theme</div>
       <div class="theme-options-grid">
         <button class="theme-btn" onclick="setTheme('default')">
           <span>🍷 Crimson Wine (Default)</span>
@@ -796,11 +904,48 @@
   <!-- MAIN CONTENT CONTAINER -->
   <div class="container">
 
-    <!-- ROUNDED BANNER -->
+    <!-- ROUNDED BANNER WITH EYE-TRACKING MASCOT -->
     <div class="banner-container" id="bannerBox">
       <div class="banner-content">
         <div class="banner-title">CRM</div>
         <div class="banner-subtitle" id="bannerSubtitle">Brand & Operations Portal</div>
+      </div>
+
+      <!-- CUTE GLOWING MASCOT -->
+      <div class="mascot-container" id="mascotBox">
+        <svg class="mascot-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Ears -->
+          <polygon points="12,22 20,4 28,18" fill="none" stroke="var(--banner-sub-color)" stroke-width="2.5" stroke-linejoin="round"/>
+          <polygon points="36,18 44,4 52,22" fill="none" stroke="var(--banner-sub-color)" stroke-width="2.5" stroke-linejoin="round"/>
+          <!-- Inner Ears -->
+          <polygon points="16,20 20,9 24,18" fill="var(--banner-sub-color)" opacity="0.3"/>
+          <polygon points="40,18 44,9 48,20" fill="var(--banner-sub-color)" opacity="0.3"/>
+          
+          <!-- Head Group (Follows Cursor) -->
+          <g class="mascot-head" id="mascotHead">
+            <!-- Face Outline -->
+            <rect x="10" y="16" width="44" height="38" rx="18" fill="rgba(10, 2, 4, 0.85)" stroke="var(--banner-sub-color)" stroke-width="2.5"/>
+            <!-- Cute Whiskers -->
+            <line x1="4" y1="33" x2="12" y2="35" stroke="var(--banner-sub-color)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="4" y1="39" x2="12" y2="38" stroke="var(--banner-sub-color)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="52" y1="35" x2="60" y2="33" stroke="var(--banner-sub-color)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="52" y1="38" x2="60" y2="39" stroke="var(--banner-sub-color)" stroke-width="1.8" stroke-linecap="round"/>
+            
+            <!-- Left Eye Socket -->
+            <ellipse cx="23" cy="33" rx="6" ry="7" fill="#000000" stroke="var(--banner-sub-color)" stroke-width="1.5"/>
+            <!-- Right Eye Socket -->
+            <ellipse cx="41" cy="33" rx="6" ry="7" fill="#000000" stroke="var(--banner-sub-color)" stroke-width="1.5"/>
+            
+            <!-- Left Pupil (Moves with Cursor) -->
+            <circle class="mascot-pupil" id="pupilLeft" cx="23" cy="33" r="3.2"/>
+            <!-- Right Pupil (Moves with Cursor) -->
+            <circle class="mascot-pupil" id="pupilRight" cx="41" cy="33" r="3.2"/>
+            
+            <!-- Cute Nose & Smile -->
+            <polygon points="30,39 34,39 32,41" fill="var(--banner-sub-color)"/>
+            <path d="M 29,43 Q 32,46 35,43" stroke="var(--banner-sub-color)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </g>
+        </svg>
       </div>
     </div>
 
@@ -1052,6 +1197,48 @@
     if (savedTheme !== 'default') {
       document.body.classList.add('theme-' + savedTheme);
     }
+
+    // MASCOT VISIBILITY TOGGLE LOGIC
+    function toggleMascotVisibility(show) {
+      const mascot = document.getElementById('mascotBox');
+      if (show) {
+        mascot.classList.remove('hidden');
+      } else {
+        mascot.classList.add('hidden');
+      }
+      localStorage.setItem('crm_mascot_enabled', show ? 'true' : 'false');
+    }
+
+    // LOAD SAVED MASCOT PREFERENCE
+    const mascotSaved = localStorage.getItem('crm_mascot_enabled');
+    if (mascotSaved === 'false') {
+      document.getElementById('mascotBox').classList.add('hidden');
+      document.getElementById('mascotToggle').checked = false;
+    }
+
+    // EYE TRACKING MASCOT LOGIC
+    document.addEventListener('mousemove', (e) => {
+      const mascot = document.getElementById('mascotBox');
+      if (mascot.classList.contains('hidden')) return;
+
+      const pupilLeft = document.getElementById('pupilLeft');
+      const pupilRight = document.getElementById('pupilRight');
+      const mascotHead = document.getElementById('mascotHead');
+
+      const rect = mascot.getBoundingClientRect();
+      const mascotX = rect.left + rect.width / 2;
+      const mascotY = rect.top + rect.height / 2;
+
+      const angle = Math.atan2(e.clientY - mascotY, e.clientX - mascotX);
+      const distance = Math.min(3.5, Math.hypot(e.clientX - mascotX, e.clientY - mascotY) / 40);
+
+      const moveX = Math.cos(angle) * distance;
+      const moveY = Math.sin(angle) * distance;
+
+      pupilLeft.setAttribute('transform', `translate(${moveX}, ${moveY})`);
+      pupilRight.setAttribute('transform', `translate(${moveX}, ${moveY})`);
+      mascotHead.style.transform = `translate(${moveX * 0.8}px, ${moveY * 0.8}px)`;
+    });
 
     const viewConfigs = {
       'mainView': { title: 'Brand & Operations Portal', bg: 'rgba(20, 4, 7, 0.65)', border: '#5c0f1c', swoosh1: 'rgba(239, 68, 68, 0.2)', swoosh2: 'rgba(239, 68, 68, 0.35)', color: '#fca5a5' },
