@@ -125,7 +125,7 @@
       transition: background 0.5s ease, color 0.5s ease;
     }
 
-    /* IDEAL CONTAINER (Original 900px + ~2% extra breathing room = 950px) */
+    /* CONTAINER (950px) */
     .container {
       max-width: 950px;
       width: 100%;
@@ -869,11 +869,11 @@
       <!-- CASINO RESOURCES DROPDOWN -->
       <li>
         <button class="dropdown-btn" onclick="toggleDropdown(this)">
-          Casino Resources
+          CRM Casino Promotions
           <span class="arrow">▼</span>
         </button>
         <div class="dropdown-container">
-          <a href="https://docs.google.com/spreadsheets/d/1uoTSV1EpmYpohtTDhrEYyEZDEVvEMguNdyR4qMxXuIE/edit?gid=0#gid=0" target="_blank" onclick="toggleMenu();">Game Release</a>
+          <a href="https://docs.google.com/spreadsheets/d/1XAtr9mqdakBD14GSwBPDHJyT4HItKtTroUbE7jlVZUA/edit?gid=0#gid=0" target="_blank" onclick="toggleMenu();">Game Release</a>
           <a href="https://docs.google.com/spreadsheets/d/1P-UGjrhh5FRh2vuyyGQFTJuBGiXoL8Ec_KPwmhUmcqo/edit?gid=335110277#gid=335110277" target="_blank" onclick="toggleMenu();">Country Testing</a>
           <a href="https://drive.google.com/file/d/184CzdRUXEYmDOLNaMR9SBtTiN3JxziQN/view?ts=6a79c76f" target="_blank" onclick="toggleMenu();">PNG Game Configuration</a>
         </div>
@@ -1065,7 +1065,7 @@
           <div class="card brand-trigger" onclick="showView('brandsView')">BRAND</div>
           <div class="card edge-trigger" onclick="showView('edgeView')">EDGE</div>
           <div class="card apex-trigger" onclick="showView('apexView')">APEX</div>
-          <div class="card casino-trigger" onclick="showView('casinoView')">CASINO</div>
+          <div class="card casino-trigger" onclick="showView('casinoView')">CRM CASINO PROMOTIONS</div>
           <div class="card crm-tools-trigger" onclick="showView('crmToolsView')">CRM TOOLS</div>
         </div>
 
@@ -1187,7 +1187,7 @@
 
       <!-- VIEW: CASINO RESOURCES -->
       <div class="grid view-section" id="casinoView">
-        <a href="https://docs.google.com/spreadsheets/d/1uoTSV1EpmYpohtTDhrEYyEZDEVvEMguNdyR4qMxXuIE/edit?gid=0#gid=0" target="_blank" class="card search-item" data-title="game release spreadsheet">Game Release</a>
+        <a href="https://docs.google.com/spreadsheets/d/1XAtr9mqdakBD14GSwBPDHJyT4HItKtTroUbE7jlVZUA/edit?gid=0#gid=0" target="_blank" class="card search-item" data-title="game release spreadsheet">Game Release</a>
         <a href="https://docs.google.com/spreadsheets/d/1P-UGjrhh5FRh2vuyyGQFTJuBGiXoL8Ec_KPwmhUmcqo/edit?gid=335110277#gid=335110277" target="_blank" class="card search-item" data-title="country testing spreadsheet">Country Testing</a>
         <a href="https://drive.google.com/file/d/184CzdRUXEYmDOLNaMR9SBtTiN3JxziQN/view?ts=6a79c76f" target="_blank" class="card search-item" data-title="png game configuration">PNG Game Configuration</a>
       </div>
@@ -1319,7 +1319,7 @@
       'brandArcticView': { title: 'Arctic Casino Workspace', bg: 'rgba(7, 35, 59, 0.65)', border: '#38bdf8', swoosh1: 'rgba(56, 189, 248, 0.25)', swoosh2: 'rgba(241, 245, 249, 0.35)', color: '#f1f5f9' },
       'edgeView': { title: 'EDGE Admin Portals', bg: 'rgba(4, 33, 16, 0.65)', border: '#14532d', swoosh1: 'rgba(34, 197, 94, 0.2)', swoosh2: 'rgba(34, 197, 94, 0.3)', color: '#86efac' },
       'apexView': { title: 'APEX Admin Portals', bg: 'rgba(31, 7, 10, 0.65)', border: '#7f1d1d', swoosh1: 'rgba(239, 68, 68, 0.2)', swoosh2: 'rgba(239, 68, 68, 0.3)', color: '#fca5a5' },
-      'casinoView': { title: 'Casino Operations & Setup', bg: 'rgba(23, 7, 43, 0.65)', border: '#6b21a8', swoosh1: 'rgba(168, 85, 247, 0.25)', swoosh2: 'rgba(168, 85, 247, 0.35)', color: '#c084fc' },
+      'casinoView': { title: 'CRM Casino Promotions', bg: 'rgba(23, 7, 43, 0.65)', border: '#6b21a8', swoosh1: 'rgba(168, 85, 247, 0.25)', swoosh2: 'rgba(168, 85, 247, 0.35)', color: '#c084fc' },
       'crmToolsView': { title: 'CRM Workspace & Planning', bg: 'rgba(9, 19, 43, 0.65)', border: '#1e3a8a', swoosh1: 'rgba(59, 130, 246, 0.25)', swoosh2: 'rgba(59, 130, 246, 0.35)', color: '#93c5fd' },
       'contentCheckView': { title: 'Content Check Verification', bg: 'rgba(26, 5, 7, 0.65)', border: '#991b1b', swoosh1: 'rgba(239, 68, 68, 0.2)', swoosh2: 'rgba(34, 197, 94, 0.2)', color: '#fca5a5' },
       'searchView': { title: 'Search Results', bg: 'rgba(18, 4, 6, 0.65)', border: '#3b0a11', swoosh1: 'rgba(220, 38, 38, 0.15)', swoosh2: 'rgba(220, 38, 38, 0.25)', color: '#ffffff' }
