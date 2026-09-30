@@ -14,20 +14,21 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
     
     :root {
-      --bg-main: #0a0203;
-      --card-bg: #120406;
-      --card-border: #3b0a11;
-      --red-accent: #dc2626;
-      --red-glow: rgba(220, 38, 38, 0.35);
+      /* SLIGHTLY BRIGHTER WINE RED BASE (1-2% LIGHTER) */
+      --bg-main: #120305;
+      --card-bg: #1a0508;
+      --card-border: #4e0f18;
+      --red-accent: #ef4444;
+      --red-glow: rgba(239, 68, 68, 0.38);
       --green-accent: #22c55e;
       --green-glow: rgba(34, 197, 94, 0.35);
-      --text-color: #e2e8f0;
+      --text-color: #f1f5f9;
 
       /* DEFAULT BANNER THEME */
-      --banner-bg: #080203;
-      --banner-border: #4a0d17;
-      --banner-swoosh-1: rgba(220, 38, 38, 0.15);
-      --banner-swoosh-2: rgba(220, 38, 38, 0.25);
+      --banner-bg: #110305;
+      --banner-border: #5c0f1c;
+      --banner-swoosh-1: rgba(239, 68, 68, 0.18);
+      --banner-swoosh-2: rgba(239, 68, 68, 0.3);
       --banner-sub-color: #fca5a5;
     }
 
@@ -39,7 +40,8 @@
       flex-direction: column;
       align-items: center;
       padding-bottom: 3rem;
-      background-image: radial-gradient(circle at 50% 15%, #220609 0%, #0a0203 75%);
+      /* BRIGHTENED RICH WINE-RED RADIAL GRADIENT */
+      background-image: radial-gradient(circle at 50% 15%, #380b12 0%, #120305 75%);
       background-attachment: fixed;
     }
 
@@ -101,7 +103,7 @@
     .banner-title {
       font-size: 1.4rem;
       font-weight: 300;
-      color: #94a3b8;
+      color: #cbd5e1;
       letter-spacing: 4px;
       text-transform: uppercase;
       margin-bottom: 0.2rem;
@@ -113,7 +115,7 @@
       letter-spacing: 2px;
       color: var(--banner-sub-color);
       text-transform: uppercase;
-      text-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
       transition: color 0.4s ease;
     }
 
@@ -123,14 +125,14 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(18, 4, 6, 0.6);
-      border: 1px solid #2a080c;
-      border-radius: 10px;
-      padding: 0.5rem 0.8rem;
+      background: rgba(26, 5, 8, 0.65);
+      border: 1px solid #3d0a11;
+      border-radius: 12px;
+      padding: 0.6rem 0.9rem;
       margin-bottom: 1.2rem;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(12px);
       font-size: 0.82rem;
-      color: #94a3b8;
+      color: #cbd5e1;
       gap: 0.8rem;
     }
 
@@ -143,10 +145,10 @@
 
     .menu-toggle {
       background: transparent;
-      border: 1px solid #7f1d1d;
-      color: #ef4444;
+      border: 1px solid #991b1b;
+      color: #f87171;
       font-size: 1.1rem;
-      padding: 0.25rem 0.6rem;
+      padding: 0.3rem 0.7rem;
       border-radius: 6px;
       cursor: pointer;
       transition: all 0.2s ease;
@@ -156,16 +158,16 @@
     }
 
     .menu-toggle:hover {
-      background: #2a080c;
-      border-color: #dc2626;
+      background: #380b12;
+      border-color: #ef4444;
       box-shadow: 0 0 8px var(--red-glow);
     }
 
     .back-btn {
-      background: #180305;
-      border: 1px solid #4a0d17;
+      background: #25060a;
+      border: 1px solid #5c0f1c;
       color: #fca5a5;
-      padding: 0.3rem 0.8rem;
+      padding: 0.35rem 0.9rem;
       border-radius: 6px;
       font-size: 0.8rem;
       cursor: pointer;
@@ -175,7 +177,7 @@
     }
 
     .back-btn:hover {
-      background: #2a080c;
+      background: #380b12;
       color: #ffffff;
       border-color: #ef4444;
     }
@@ -183,24 +185,24 @@
     .compact-search-box {
       display: flex;
       align-items: center;
-      background: #0f0305;
-      border: 1px solid #3b0a11;
+      background: #120305;
+      border: 1px solid #4e0f18;
       border-radius: 6px;
-      padding: 0.25rem 0.6rem;
+      padding: 0.3rem 0.7rem;
       transition: all 0.2s ease;
-      max-width: 220px;
+      max-width: 240px;
       width: 100%;
     }
 
     .compact-search-box:focus-within {
       border-color: #ef4444;
-      box-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
+      box-shadow: 0 0 8px rgba(239, 68, 68, 0.35);
     }
 
     .compact-search-box .search-icon {
       font-size: 0.8rem;
       margin-right: 0.4rem;
-      opacity: 0.7;
+      opacity: 0.85;
     }
 
     .compact-search-input {
@@ -208,12 +210,12 @@
       border: none;
       outline: none;
       color: #ffffff;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       width: 100%;
     }
 
     .compact-search-input::placeholder {
-      color: #64748b;
+      color: #94a3b8;
     }
 
     .status-item {
@@ -223,29 +225,31 @@
       white-space: nowrap;
     }
 
-    /* UNIFIED CONTAINER FOR PINS & CONTENT GRID */
+    /* UNIFIED SINGLE GLASS CONTAINER */
     .unified-card-container {
-      width: 100%;
-      background: rgba(14, 3, 5, 0.75);
-      border: 1px solid #2e080e;
-      border-radius: 14px;
+      background: rgba(26, 5, 8, 0.75);
+      border: 1px solid rgba(92, 15, 28, 0.75);
+      border-radius: 16px;
       padding: 1.5rem;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+      margin-bottom: 1.5rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(12px);
     }
 
-    /* QUICK ACCESS / PINS SECTION */
-    .quick-access-box {
-      margin-bottom: 1.2rem;
+    /* QUICK ACCESS SECTION INSIDE UNIFIED CONTAINER */
+    .quick-access-section {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid rgba(92, 15, 28, 0.65);
     }
 
     .section-label {
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      color: #ef4444;
-      margin-bottom: 0.6rem;
+      color: #f87171;
+      margin-bottom: 0.8rem;
       display: flex;
       align-items: center;
       gap: 0.4rem;
@@ -258,13 +262,13 @@
     }
 
     .pin-card {
-      background: rgba(18, 4, 6, 0.8);
-      border: 1px solid #2a080c;
-      border-radius: 6px;
-      padding: 0.6rem 0.9rem;
+      background: rgba(18, 3, 5, 0.85);
+      border: 1px solid #3d0a11;
+      border-radius: 8px;
+      padding: 0.7rem 0.93rem;
       text-decoration: none;
-      color: #cbd5e1;
-      font-size: 0.82rem;
+      color: #e2e8f0;
+      font-size: 0.83rem;
       font-weight: 500;
       display: flex;
       align-items: center;
@@ -275,8 +279,8 @@
     .pin-card:hover {
       border-color: #ef4444;
       color: #ffffff;
-      background: #1f070a;
-      box-shadow: 0 0 10px rgba(239, 68, 68, 0.25);
+      background: #2b060b;
+      box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
     }
 
     /* SIDEBAR SLIDE-OUT */
@@ -286,7 +290,7 @@
       left: -300px;
       width: 300px;
       height: 100%;
-      background: #0d0304;
+      background: #140306;
       border-right: 1px solid var(--card-border);
       box-shadow: 5px 0 25px rgba(0, 0, 0, 0.85);
       transition: left 0.3s ease;
@@ -307,7 +311,7 @@
     }
 
     .sidebar-title {
-      color: #ef4444;
+      color: #f87171;
       font-size: 1rem;
       font-weight: 500;
       letter-spacing: 1px;
@@ -316,12 +320,12 @@
     .close-btn {
       background: none;
       border: none;
-      color: #991b1b;
+      color: #b91c1c;
       font-size: 1.5rem;
       cursor: pointer;
     }
 
-    .close-btn:hover { color: #ef4444; }
+    .close-btn:hover { color: #f87171; }
 
     .sidebar-menu { list-style: none; }
     .sidebar-menu li { margin-bottom: 0.6rem; }
@@ -336,7 +340,7 @@
       justify-content: space-between;
       width: 100%;
       padding: 0.64rem 0.8rem;
-      border-radius: 4px;
+      border-radius: 6px;
       transition: background 0.2s;
       background: transparent;
       border: none;
@@ -345,18 +349,18 @@
     }
 
     .sidebar-menu a:hover, .dropdown-btn:hover {
-      background: #2a080c;
+      background: #380b12;
       color: #ffffff;
     }
 
     /* DROPDOWN MENU ACCORDION */
     .dropdown-container {
       display: none;
-      background-color: #060102;
+      background-color: #0d0204;
       padding-left: 0.8rem;
       margin-top: 0.3rem;
-      border-left: 1px solid #3b0a11;
-      border-radius: 0 0 4px 4px;
+      border-left: 1px solid #4e0f18;
+      border-radius: 0 0 6px 6px;
     }
 
     .dropdown-container a {
@@ -368,8 +372,8 @@
     }
 
     .dropdown-container a:hover {
-      color: #ef4444;
-      background: #180305;
+      color: #f87171;
+      background: #25060a;
     }
 
     .arrow { font-size: 0.7rem; transition: transform 0.2s ease; }
@@ -391,15 +395,15 @@
     /* BUTTON GRID */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 1.1rem;
     }
 
     /* SUBTLE DIVISION LINE FOR BRANDS VIEW */
     .section-divider {
       grid-column: 1 / -1;
       height: 1px;
-      background: linear-gradient(90deg, transparent 0%, #4a0d17 50%, transparent 100%);
+      background: linear-gradient(90deg, transparent 0%, #5c0f1c 50%, transparent 100%);
       margin: 0.8rem 0;
     }
 
@@ -410,7 +414,7 @@
       border-radius: 8px;
       padding: 1.2rem;
       text-decoration: none;
-      color: #cbd5e1;
+      color: #e2e8f0;
       font-weight: 400;
       font-size: 0.95rem;
       letter-spacing: 0.5px;
@@ -428,67 +432,85 @@
       transform: translateY(-3px);
       border-color: var(--red-accent);
       color: #ffffff;
-      box-shadow: 0 0 12px var(--red-glow), 0 0 25px rgba(220, 38, 38, 0.15);
-      background: #1a0507;
+      box-shadow: 0 0 12px var(--red-glow), 0 0 25px rgba(239, 68, 68, 0.18);
+      background: #2b060b;
     }
 
-    /* SPECIAL MAIN BUTTONS */
-    .card.brand-trigger { border-color: #854d0e; color: #facc15; }
-    .card.brand-trigger:hover { border-color: #eab308; box-shadow: 0 0 15px rgba(234, 179, 8, 0.4); background: #1c1300; color: #ffffff; }
+    /* MAIN CATEGORY BUTTON THEMES */
+    .card.brand-trigger { border-color: #a16207; color: #fde047; background: #1c1002; }
+    .card.brand-trigger:hover { border-color: #eab308; box-shadow: 0 0 15px rgba(234, 179, 8, 0.45); background: #2e1a03; color: #ffffff; }
 
-    .card.edge-trigger { border-color: #14532d; color: #86efac; }
-    .card.edge-trigger:hover { border-color: var(--green-accent); color: #ffffff; box-shadow: 0 0 12px var(--green-glow); background: #042110; }
+    .card.edge-trigger { border-color: #15803d; color: #86efac; background: #042412; }
+    .card.edge-trigger:hover { border-color: var(--green-accent); color: #ffffff; box-shadow: 0 0 12px var(--green-glow); background: #07381d; }
 
-    .card.apex-trigger { border-color: #7f1d1d; color: #fca5a5; }
-    .card.apex-trigger:hover { border-color: #ef4444; color: #ffffff; box-shadow: 0 0 12px var(--red-glow); background: #1f070a; }
+    .card.apex-trigger { border-color: #991b1b; color: #fca5a5; background: #28060a; }
+    .card.apex-trigger:hover { border-color: #ef4444; color: #ffffff; box-shadow: 0 0 12px var(--red-glow); background: #380b12; }
 
-    /* CASINO PURPLE THEME */
-    .card.casino-trigger { border-color: #6b21a8; color: #c084fc; background: #12071f; }
-    .card.casino-trigger:hover { border-color: #a855f7; box-shadow: 0 0 15px rgba(168, 85, 247, 0.4); background: #220b38; color: #ffffff; }
+    /* CASINO CATEGORY: PURPLE GLOW THEME */
+    .card.casino-trigger {
+      border-color: #7e22ce;
+      background: #1e0936;
+      color: #e9d5ff;
+    }
+    .card.casino-trigger:hover {
+      border-color: #a855f7;
+      color: #ffffff;
+      box-shadow: 0 0 15px rgba(168, 85, 247, 0.45);
+      background: #2e0d52;
+    }
 
-    /* CRM TOOLS MIDNIGHT BLUE THEME */
-    .card.crm-tools-trigger { border-color: #1e3a8a; color: #93c5fd; background: #080f24; }
-    .card.crm-tools-trigger:hover { border-color: #3b82f6; box-shadow: 0 0 15px rgba(59, 130, 246, 0.4); background: #0d1b3d; color: #ffffff; }
+    /* CRM TOOLS CATEGORY: MIDNIGHT BLUE GLOW THEME */
+    .card.crm-tools-trigger {
+      border-color: #1d4ed8;
+      background: #0b1a3a;
+      color: #bfdbfe;
+    }
+    .card.crm-tools-trigger:hover {
+      border-color: #3b82f6;
+      color: #ffffff;
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.45);
+      background: #132a5e;
+    }
 
     /* CONTENT CHECK BUTTONS */
-    .card.content-red { border-color: #991b1b; color: #fca5a5; }
-    .card.content-red:hover { border-color: #ef4444; box-shadow: 0 0 18px rgba(239, 68, 68, 0.5); background: #28060a; color: #ffffff; }
+    .card.content-red { border-color: #b91c1c; color: #fca5a5; background: #28060a; }
+    .card.content-red:hover { border-color: #ef4444; box-shadow: 0 0 18px rgba(239, 68, 68, 0.5); background: #380b12; color: #ffffff; }
 
-    .card.content-green { border-color: #166534; color: #86efac; }
-    .card.content-green:hover { border-color: #22c55e; box-shadow: 0 0 18px rgba(34, 197, 94, 0.5); background: #062b14; color: #ffffff; }
+    .card.content-green { border-color: #15803d; color: #86efac; background: #042412; }
+    .card.content-green:hover { border-color: #22c55e; box-shadow: 0 0 18px rgba(34, 197, 94, 0.5); background: #07381d; color: #ffffff; }
 
     /* BRAND SPECIFIC STYLES */
-    .brand-qbet { border-color: #166534; color: #4ade80; }
-    .brand-qbet:hover { border-color: #22c55e; box-shadow: 0 0 15px rgba(34, 197, 94, 0.4); background: #052e16; color: #ffffff; }
+    .brand-qbet { border-color: #15803d; color: #4ade80; background: #042412; }
+    .brand-qbet:hover { border-color: #22c55e; box-shadow: 0 0 15px rgba(34, 197, 94, 0.45); background: #07381d; color: #ffffff; }
 
-    .brand-manga { border-color: #94a3b8; color: #f8fafc; }
-    .brand-manga:hover { border-color: #ffffff; box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); background: #1e293b; color: #ffffff; }
+    .brand-manga { border-color: #64748b; color: #f8fafc; background: #182232; }
+    .brand-manga:hover { border-color: #ffffff; box-shadow: 0 0 15px rgba(255, 255, 255, 0.35); background: #253346; color: #ffffff; }
 
-    .brand-30bet { border-color: #1e40af; color: #60a5fa; }
-    .brand-30bet:hover { border-color: #3b82f6; box-shadow: 0 0 15px rgba(59, 130, 246, 0.4); background: #0f172a; color: #ffffff; }
+    .brand-30bet { border-color: #1d4ed8; color: #60a5fa; background: #0f1d38; }
+    .brand-30bet:hover { border-color: #3b82f6; box-shadow: 0 0 15px rgba(59, 130, 246, 0.45); background: #172d54; color: #ffffff; }
 
-    .brand-gqbet { border-color: #854d0e; color: #facc15; background: #050300; }
-    .brand-gqbet:hover { border-color: #eab308; box-shadow: 0 0 15px rgba(234, 179, 8, 0.4); background: #1c1300; color: #ffffff; }
+    .brand-gqbet { border-color: #a16207; color: #fde047; background: #0c0801; }
+    .brand-gqbet:hover { border-color: #eab308; box-shadow: 0 0 15px rgba(234, 179, 8, 0.45); background: #241a02; color: #ffffff; }
 
-    .brand-7abet { border-color: #ca8a04; background: linear-gradient(135deg, #052e16 0%, #021a0c 100%); color: #facc15; font-weight: 600; }
-    .brand-7abet:hover { border-color: #eab308; box-shadow: 0 0 15px rgba(234, 179, 8, 0.5), 0 0 25px rgba(34, 197, 94, 0.3); background: #0b4522; color: #ffffff; }
+    .brand-7abet { border-color: #eab308; background: linear-gradient(135deg, #07381d 0%, #031e0f 100%); color: #fde047; font-weight: 600; }
+    .brand-7abet:hover { border-color: #facc15; box-shadow: 0 0 15px rgba(234, 179, 8, 0.55), 0 0 25px rgba(34, 197, 94, 0.35); background: #0f5229; color: #ffffff; }
 
-    .brand-bvbet { border-color: #a16207; background: #050505; color: #facc15; font-weight: 600; }
-    .brand-bvbet:hover { border-color: #eab308; box-shadow: 0 0 18px rgba(234, 179, 8, 0.6); background: #141103; color: #ffffff; }
+    .brand-bvbet { border-color: #ca8a04; background: #0a0902; color: #fde047; font-weight: 600; }
+    .brand-bvbet:hover { border-color: #facc15; box-shadow: 0 0 18px rgba(234, 179, 8, 0.65); background: #1c1804; color: #ffffff; }
 
-    .brand-55bet { border-color: #ef4444; background: linear-gradient(135deg, #2b0407 0%, #0a0203 100%); color: #ffffff; font-weight: 600; position: relative; overflow: hidden; box-shadow: 0 0 10px rgba(239, 68, 68, 0.3); }
+    .brand-55bet { border-color: #ef4444; background: linear-gradient(135deg, #380b12 0%, #120305 100%); color: #ffffff; font-weight: 600; position: relative; overflow: hidden; box-shadow: 0 0 10px rgba(239, 68, 68, 0.35); }
     .brand-55bet::after { content: "✨"; position: absolute; right: 12px; top: 10px; font-size: 0.9rem; animation: pulseSparkle 1.5s infinite alternate; }
-    .brand-55bet:hover { border-color: #f87171; box-shadow: 0 0 20px rgba(239, 68, 68, 0.6), 0 0 30px rgba(255, 255, 255, 0.2); transform: translateY(-4px) scale(1.02); }
+    .brand-55bet:hover { border-color: #f87171; box-shadow: 0 0 20px rgba(239, 68, 68, 0.65), 0 0 30px rgba(255, 255, 255, 0.25); transform: translateY(-4px) scale(1.02); }
 
-    .brand-howzit { border-color: #eab308; background: linear-gradient(135deg, #ffffff 0%, #fef08a 100%); color: #000000; font-weight: 700; position: relative; box-shadow: 0 0 10px rgba(234, 179, 8, 0.4); }
+    .brand-howzit { border-color: #eab308; background: linear-gradient(135deg, #ffffff 0%, #fef08a 100%); color: #000000; font-weight: 700; position: relative; box-shadow: 0 0 10px rgba(234, 179, 8, 0.45); }
     .brand-howzit::after { content: "✨"; position: absolute; right: 12px; top: 10px; font-size: 0.9rem; animation: pulseSparkle 1.5s infinite alternate; }
-    .brand-howzit:hover { border-color: #ca8a04; box-shadow: 0 0 20px rgba(234, 179, 8, 0.8), 0 0 25px rgba(255, 255, 255, 0.8); transform: translateY(-4px) scale(1.02); color: #000000; }
+    .brand-howzit:hover { border-color: #ca8a04; box-shadow: 0 0 20px rgba(234, 179, 8, 0.85), 0 0 25px rgba(255, 255, 255, 0.85); transform: translateY(-4px) scale(1.02); color: #000000; }
 
-    .brand-ibet { border-color: #dc2626; background: linear-gradient(135deg, #180305 0%, #0a0203 100%); color: #ffffff; font-weight: 600; }
-    .brand-ibet:hover { border-color: #ef4444; box-shadow: 0 0 18px rgba(239, 68, 68, 0.5); background: #250508; color: #ffffff; }
+    .brand-ibet { border-color: #ef4444; background: linear-gradient(135deg, #25060a 0%, #120305 100%); color: #ffffff; font-weight: 600; }
+    .brand-ibet:hover { border-color: #f87171; box-shadow: 0 0 18px rgba(239, 68, 68, 0.55); background: #380b12; color: #ffffff; }
 
-    .brand-arctic { border-color: #38bdf8; background: linear-gradient(135deg, #031525 0%, #080f18 100%); color: #f1f5f9; font-weight: 500; }
-    .brand-arctic:hover { border-color: #7dd3fc; box-shadow: 0 0 18px rgba(56, 189, 248, 0.5); background: #07233b; color: #ffffff; }
+    .brand-arctic { border-color: #38bdf8; background: linear-gradient(135deg, #07233b 0%, #03121c 100%); color: #f1f5f9; font-weight: 500; }
+    .brand-arctic:hover { border-color: #7dd3fc; box-shadow: 0 0 18px rgba(56, 189, 248, 0.55); background: #0c3657; color: #ffffff; }
 
     @keyframes pulseSparkle {
       0% { opacity: 0.3; transform: scale(0.8); }
@@ -607,11 +629,22 @@
     <!-- UNIFIED CARD CONTAINER FOR PINS AND GRID VIEWS -->
     <div class="unified-card-container">
 
-      <!-- QUICK ACCESS / PINS SECTION -->
+      <!-- FIXED QUICK ACCESS PINS SECTION -->
       <div class="quick-access-box" id="quickPinsBox">
         <div class="section-label">⚡ Quick Access Pins</div>
-        <div class="quick-pins-grid" id="quickPinsGrid">
-          <!-- DYNAMICALLY POPULATED -->
+        <div class="quick-pins-grid">
+          <a href="https://docs.google.com/spreadsheets/d/13ubzW7K15O2tr_0ORf7Q1BwqJiCOWa1f9w8DL5WH1dc/edit?gid=305835903#gid=305835903" target="_blank" class="pin-card">
+            <span>CRM Calendar</span>
+            <span>📅</span>
+          </a>
+          <a href="https://ibet.atlassian.net/jira/core/projects/CAM/calendar" target="_blank" class="pin-card">
+            <span>Jira Calendar</span>
+            <span>🚀</span>
+          </a>
+          <a href="https://ibet.atlassian.net/wiki/spaces/CRM/overview?homepageId=1257210061" target="_blank" class="pin-card">
+            <span>Confluence</span>
+            <span>📝</span>
+          </a>
         </div>
       </div>
 
@@ -659,6 +692,7 @@
         <a href="https://www.qbet.com/en-UN" target="_blank" class="card search-item" data-title="qbet website">Website</a>
         <a href="https://drive.google.com/drive/u/1/folders/1I9SxublbQZpzD7eVCYiY6xsQc1tSQfVH?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card search-item" data-title="qbet creatives">Creatives</a>
         <a href="https://admin.edgegaming.io/admin/qbet/homepage" target="_blank" class="card brand-qbet search-item" data-title="qbet admin">Admin</a>
+        <a href="https://qbetcrm.ft-crm.com/v2/lifecycle-engagements" target="_blank" class="card search-item" data-title="qbet fastrack">Fastrack</a>
       </div>
 
       <!-- MANGA CASINO -->
@@ -666,6 +700,7 @@
         <a href="https://www.mangacasino.com/en-UN" target="_blank" class="card search-item" data-title="manga casino website">Website</a>
         <a href="https://drive.google.com/drive/u/1/folders/19ovaY1VoGjTMNAfWuVdkdLwib8IykQ6x?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card search-item" data-title="manga casino creatives">Creatives</a>
         <a href="https://admin.edgegaming.io/admin/manga/homepage" target="_blank" class="card brand-manga search-item" data-title="manga casino admin">Admin</a>
+        <a href="https://qbetcrm.ft-crm.com/v2/lifecycle-engagements" target="_blank" class="card search-item" data-title="manga casino fastrack">Fastrack</a>
       </div>
 
       <!-- 30BET -->
@@ -673,6 +708,7 @@
         <a href="https://www.30bet.com/en-UN" target="_blank" class="card search-item" data-title="30bet website">Website</a>
         <a href="https://drive.google.com/drive/u/1/folders/1U5zut8q8B-4mbBG2zWznqjdrg545IhoO?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card search-item" data-title="30bet creatives">Creatives</a>
         <a href="https://admin.edgegaming.io/admin/30bet/homepage" target="_blank" class="card brand-30bet search-item" data-title="30bet admin">Admin</a>
+        <a href="https://qbetcrm.ft-crm.com/v2/lifecycle-engagements" target="_blank" class="card search-item" data-title="30bet fastrack">Fastrack</a>
       </div>
 
       <!-- GQBET -->
@@ -688,6 +724,7 @@
         <a href="https://drive.google.com/drive/u/1/folders/1AW2dMIgxqbQ1nYpi2AhMRh2f3_JR2zMQ?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank" class="card search-item" data-title="55bet creatives">Creatives</a>
         <a href="https://admin.edgegaming.io/admin/55bet/homepage" target="_blank" class="card brand-55bet search-item" data-title="55bet admin">Admin</a>
         <a href="https://cms.55bet.com/structure" target="_blank" class="card search-item" data-title="55bet cms">CMS</a>
+        <a href="https://qbetcrm.ft-crm.com/v2/lifecycle-engagements" target="_blank" class="card search-item" data-title="55bet fastrack">Fastrack</a>
       </div>
 
       <!-- HOWZIT -->
@@ -796,31 +833,30 @@
     }
 
     const viewConfigs = {
-      'mainView': { title: 'Brand & Operations Portal', bg: '#080203', border: '#4a0d17', swoosh1: 'rgba(220, 38, 38, 0.15)', swoosh2: 'rgba(220, 38, 38, 0.25)', color: '#fca5a5' },
-      'brandsView': { title: 'All Brands Hub', bg: '#1c1300', border: '#854d0e', swoosh1: 'rgba(234, 179, 8, 0.2)', swoosh2: 'rgba(234, 179, 8, 0.3)', color: '#facc15' },
-      'brandQbetView': { title: 'Qbet Workspace', bg: '#052e16', border: '#166534', swoosh1: 'rgba(34, 197, 94, 0.2)', swoosh2: 'rgba(34, 197, 94, 0.35)', color: '#4ade80' },
-      'brandMangaView': { title: 'Manga Casino Workspace', bg: '#1e293b', border: '#64748b', swoosh1: 'rgba(255, 255, 255, 0.15)', swoosh2: 'rgba(255, 255, 255, 0.25)', color: '#f8fafc' },
-      'brand30betView': { title: '30bet Workspace', bg: '#0f172a', border: '#1e40af', swoosh1: 'rgba(59, 130, 246, 0.2)', swoosh2: 'rgba(59, 130, 246, 0.35)', color: '#60a5fa' },
-      'brandGqbetView': { title: 'GQbet Workspace', bg: '#140e01', border: '#854d0e', swoosh1: 'rgba(234, 179, 8, 0.2)', swoosh2: 'rgba(234, 179, 8, 0.35)', color: '#facc15' },
-      'brand55betView': { title: '55bet Workspace', bg: '#2b0407', border: '#ef4444', swoosh1: 'rgba(239, 68, 68, 0.25)', swoosh2: 'rgba(255, 255, 255, 0.3)', color: '#ffffff' },
-      'brandHowzitView': { title: 'Howzit Workspace', bg: '#3a3000', border: '#ca8a04', swoosh1: 'rgba(254, 240, 138, 0.3)', swoosh2: 'rgba(255, 255, 255, 0.4)', color: '#fef08a' },
-      'brand7abetView': { title: '7Abet Workspace', bg: '#0b4522', border: '#ca8a04', swoosh1: 'rgba(234, 179, 8, 0.25)', swoosh2: 'rgba(34, 197, 94, 0.35)', color: '#facc15' },
-      'brandBvbetView': { title: 'BVBet Workspace', bg: '#141103', border: '#a16207', swoosh1: 'rgba(234, 179, 8, 0.25)', swoosh2: 'rgba(234, 179, 8, 0.4)', color: '#facc15' },
-      'brandIbetView': { title: 'iBet Workspace', bg: '#250508', border: '#dc2626', swoosh1: 'rgba(239, 68, 68, 0.25)', swoosh2: 'rgba(255, 255, 255, 0.25)', color: '#ffffff' },
-      'brandArcticView': { title: 'Arctic Casino Workspace', bg: '#07233b', border: '#38bdf8', swoosh1: 'rgba(56, 189, 248, 0.25)', swoosh2: 'rgba(241, 245, 249, 0.35)', color: '#f1f5f9' },
-      'edgeView': { title: 'EDGE Admin Portals', bg: '#042110', border: '#14532d', swoosh1: 'rgba(34, 197, 94, 0.2)', swoosh2: 'rgba(34, 197, 94, 0.3)', color: '#86efac' },
-      'apexView': { title: 'APEX Admin Portals', bg: '#1f070a', border: '#7f1d1d', swoosh1: 'rgba(239, 68, 68, 0.2)', swoosh2: 'rgba(239, 68, 68, 0.3)', color: '#fca5a5' },
-      'casinoView': { title: 'Casino Operations & Setup', bg: '#17072b', border: '#6b21a8', swoosh1: 'rgba(168, 85, 247, 0.25)', swoosh2: 'rgba(168, 85, 247, 0.35)', color: '#c084fc' },
-      'crmToolsView': { title: 'CRM Workspace & Planning', bg: '#09132b', border: '#1e3a8a', swoosh1: 'rgba(59, 130, 246, 0.25)', swoosh2: 'rgba(59, 130, 246, 0.35)', color: '#93c5fd' },
-      'contentCheckView': { title: 'Content Check Verification', bg: '#1a0507', border: '#991b1b', swoosh1: 'rgba(239, 68, 68, 0.2)', swoosh2: 'rgba(34, 197, 94, 0.2)', color: '#fca5a5' },
-      'searchView': { title: 'Search Results', bg: '#120406', border: '#3b0a11', swoosh1: 'rgba(220, 38, 38, 0.15)', swoosh2: 'rgba(220, 38, 38, 0.25)', color: '#ffffff' }
+      'mainView': { title: 'Brand & Operations Portal', bg: '#110305', border: '#5c0f1c', swoosh1: 'rgba(239, 68, 68, 0.18)', swoosh2: 'rgba(239, 68, 68, 0.3)', color: '#fca5a5' },
+      'brandsView': { title: 'All Brands Hub', bg: '#241a02', border: '#a16207', swoosh1: 'rgba(234, 179, 8, 0.25)', swoosh2: 'rgba(234, 179, 8, 0.35)', color: '#fde047' },
+      'brandQbetView': { title: 'Qbet Workspace', bg: '#07381d', border: '#15803d', swoosh1: 'rgba(34, 197, 94, 0.25)', swoosh2: 'rgba(34, 197, 94, 0.4)', color: '#4ade80' },
+      'brandMangaView': { title: 'Manga Casino Workspace', bg: '#253346', border: '#64748b', swoosh1: 'rgba(255, 255, 255, 0.18)', swoosh2: 'rgba(255, 255, 255, 0.3)', color: '#f8fafc' },
+      'brand30betView': { title: '30bet Workspace', bg: '#172d54', border: '#1d4ed8', swoosh1: 'rgba(59, 130, 246, 0.25)', swoosh2: 'rgba(59, 130, 246, 0.4)', color: '#60a5fa' },
+      'brandGqbetView': { title: 'GQbet Workspace', bg: '#1a1302', border: '#a16207', swoosh1: 'rgba(234, 179, 8, 0.25)', swoosh2: 'rgba(234, 179, 8, 0.4)', color: '#fde047' },
+      'brand55betView': { title: '55bet Workspace', bg: '#380b12', border: '#ef4444', swoosh1: 'rgba(239, 68, 68, 0.3)', swoosh2: 'rgba(255, 255, 255, 0.35)', color: '#ffffff' },
+      'brandHowzitView': { title: 'Howzit Workspace', bg: '#473b00', border: '#eab308', swoosh1: 'rgba(254, 240, 138, 0.35)', swoosh2: 'rgba(255, 255, 255, 0.45)', color: '#fef08a' },
+      'brand7abetView': { title: '7Abet Workspace', bg: '#0f5229', border: '#eab308', swoosh1: 'rgba(234, 179, 8, 0.3)', swoosh2: 'rgba(34, 197, 94, 0.4)', color: '#fde047' },
+      'brandBvbetView': { title: 'BVBet Workspace', bg: '#1c1804', border: '#ca8a04', swoosh1: 'rgba(234, 179, 8, 0.3)', swoosh2: 'rgba(234, 179, 8, 0.45)', color: '#fde047' },
+      'brandIbetView': { title: 'iBet Workspace', bg: '#380b12', border: '#ef4444', swoosh1: 'rgba(239, 68, 68, 0.3)', swoosh2: 'rgba(255, 255, 255, 0.3)', color: '#ffffff' },
+      'brandArcticView': { title: 'Arctic Casino Workspace', bg: '#0c3657', border: '#38bdf8', swoosh1: 'rgba(56, 189, 248, 0.3)', swoosh2: 'rgba(241, 245, 249, 0.4)', color: '#f1f5f9' },
+      'edgeView': { title: 'EDGE Admin Portals', bg: '#07381d', border: '#15803d', swoosh1: 'rgba(34, 197, 94, 0.25)', swoosh2: 'rgba(34, 197, 94, 0.35)', color: '#86efac' },
+      'apexView': { title: 'APEX Admin Portals', bg: '#28060a', border: '#991b1b', swoosh1: 'rgba(239, 68, 68, 0.25)', swoosh2: 'rgba(239, 68, 68, 0.35)', color: '#fca5a5' },
+      'casinoView': { title: 'Casino Operations & Setup', bg: '#2e0d52', border: '#7e22ce', swoosh1: 'rgba(168, 85, 247, 0.3)', swoosh2: 'rgba(168, 85, 247, 0.4)', color: '#e9d5ff' },
+      'crmToolsView': { title: 'CRM Workspace & Planning', bg: '#132a5e', border: '#1d4ed8', swoosh1: 'rgba(59, 130, 246, 0.3)', swoosh2: 'rgba(59, 130, 246, 0.4)', color: '#bfdbfe' },
+      'contentCheckView': { title: 'Content Check Verification', bg: '#28060a', border: '#b91c1c', swoosh1: 'rgba(239, 68, 68, 0.25)', swoosh2: 'rgba(34, 197, 94, 0.25)', color: '#fca5a5' },
+      'searchView': { title: 'Search Results', bg: '#1a0508', border: '#4e0f18', swoosh1: 'rgba(239, 68, 68, 0.18)', swoosh2: 'rgba(239, 68, 68, 0.3)', color: '#ffffff' }
     };
 
     function showView(viewId) {
       if (viewId !== 'searchView') {
         document.getElementById('searchInput').value = '';
         document.getElementById('searchView').style.display = 'none';
-        document.getElementById('dashboardContent').style.display = 'block';
       }
 
       document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
@@ -859,17 +895,16 @@
     function filterLinks() {
       const query = document.getElementById('searchInput').value.toLowerCase().trim();
       const searchView = document.getElementById('searchView');
-      const dashboardContent = document.getElementById('dashboardContent');
 
       if (query === '') {
         searchView.style.display = 'none';
-        dashboardContent.style.display = 'block';
         showView(navigationHistory[navigationHistory.length - 1] || 'mainView');
         return;
       }
 
-      dashboardContent.style.display = 'none';
+      document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
       searchView.style.display = 'grid';
+      searchView.classList.add('active');
       searchView.innerHTML = '';
 
       const allItems = document.querySelectorAll('.search-item');
@@ -879,68 +914,17 @@
         const title = item.getAttribute('data-title') || item.innerText.toLowerCase();
         if (title.includes(query)) {
           const clone = item.cloneNode(true);
-          clone.onclick = function() { trackClick(item.innerText.trim(), item.href || '#'); };
           searchView.appendChild(clone);
           matches++;
         }
       });
 
       if (matches === 0) {
-        searchView.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: #64748b; padding: 2rem;">No matching tools found...</div>';
+        searchView.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: #94a3b8; padding: 2rem;">No matching tools found...</div>';
       }
 
       showView('searchView');
     }
-
-    // DEFAULT PINS + DYNAMIC VISITS TRACKER
-    const defaultPins = [
-      { name: 'CRM Calendar', url: 'https://docs.google.com/spreadsheets/d/13ubzW7K15O2tr_0ORf7Q1BwqJiCOWa1f9w8DL5WH1dc/edit?gid=305835903#gid=305835903', icon: '📅' },
-      { name: 'Jira Calendar', url: 'https://ibet.atlassian.net/jira/core/projects/CAM/calendar', icon: '🚀' },
-      { name: 'Confluence', url: 'https://ibet.atlassian.net/wiki/spaces/CRM/overview?homepageId=1257210061', icon: '📝' }
-    ];
-
-    function trackClick(title, url) {
-      if (!title || url === '#') return;
-      let counts = JSON.parse(localStorage.getItem('crm_link_clicks') || '{}');
-      counts[title] = { count: (counts[title]?.count || 0) + 1, url: url };
-      localStorage.setItem('crm_link_clicks', JSON.stringify(counts));
-      renderQuickPins();
-    }
-
-    function renderQuickPins() {
-      const pinsGrid = document.getElementById('quickPinsGrid');
-      let counts = JSON.parse(localStorage.getItem('crm_link_clicks') || '{}');
-      
-      let sortedClicked = Object.keys(counts)
-        .map(key => ({ name: key, url: counts[key].url, count: counts[key].count }))
-        .sort((a, b) => b.count - a.count);
-
-      let pinsToDisplay = [...defaultPins];
-
-      sortedClicked.forEach(item => {
-        if (!pinsToDisplay.some(p => p.name.toLowerCase() === item.name.toLowerCase()) && pinsToDisplay.length < 5) {
-          pinsToDisplay.push({ name: item.name, url: item.url, icon: '🔥' });
-        }
-      });
-
-      pinsGrid.innerHTML = pinsToDisplay.map(pin => `
-        <a href="${pin.url}" target="_blank" class="pin-card" onclick="trackClick('${pin.name}', '${pin.url}')">
-          <span>${pin.name}</span>
-          <span>${pin.icon}</span>
-        </a>
-      `).join('');
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.card').forEach(card => {
-        if (card.href) {
-          card.addEventListener('click', () => {
-            trackClick(card.innerText.trim(), card.href);
-          });
-        }
-      });
-      renderQuickPins();
-    });
   </script>
 
 </body>
