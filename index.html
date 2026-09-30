@@ -116,7 +116,14 @@
       padding: 0 1rem;
     }
 
-    /* DYNAMIC ROUNDED GLASS BANNER */
+    /* BANNER OUTER WRAPPER FOR PEEKING OVERLAY */
+    .banner-wrapper {
+      position: relative;
+      width: 100%;
+      margin: 1.5rem 0 1rem 0;
+    }
+
+    /* DYNAMIC ROUNDED GLASS BANNER (STRICTLY CLIPPED SWOOSH) */
     .banner-container {
       width: 100%;
       background: var(--banner-bg);
@@ -127,9 +134,8 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      overflow: visible; /* ALLOW PEEKING OVER BORDER */
+      overflow: hidden; /* CLIPS SWOOSH TO INNER BOX */
       box-shadow: 0 8px 32px rgba(0,0,0,0.7);
-      margin: 1.5rem 0 1rem 0;
       backdrop-filter: blur(12px);
       transition: all 0.4s ease;
     }
@@ -167,13 +173,12 @@
       transition: all 0.3s ease;
     }
 
-    /* WHEN MASCOT IS VISIBLE, PUSH CONTENT SLIGHTLY LEFT TO KEEP CENTERING BALANCED */
-    .banner-container.has-mascot .banner-content {
+    .banner-wrapper.has-mascot .banner-content {
       margin-right: 40px;
     }
 
     .banner-title {
-      font-size: 2.2rem; /* RESTORED LARGE BOLD CRM TITLE */
+      font-size: 2.2rem;
       font-weight: 300;
       color: #ffffff;
       letter-spacing: 6px;
@@ -192,12 +197,12 @@
       transition: color 0.4s ease;
     }
 
-    /* PEEKING MASCOT IN BOTTOM RIGHT CORNER */
+    /* PEEKING MASCOT POSITIONED ON OUTER WRAPPER */
     .mascot-container {
       position: absolute;
       right: 25px;
-      bottom: -4px; /* RESTS ON THE BORDER */
-      z-index: 5;
+      bottom: -4px;
+      z-index: 10;
       width: 80px;
       height: 65px;
       pointer-events: auto;
@@ -226,7 +231,6 @@
       transition: transform 0.05s ease-out;
     }
 
-    /* WAGGING TAIL ANIMATION */
     .mascot-tail {
       transform-origin: 70px 50px;
       animation: tailWag 2.5s infinite ease-in-out;
@@ -924,14 +928,17 @@
   <!-- MAIN CONTENT CONTAINER -->
   <div class="container">
 
-    <!-- ROUNDED BANNER WITH EYE-TRACKING PEEKING MASCOT -->
-    <div class="banner-container has-mascot" id="bannerBox">
-      <div class="banner-content">
-        <div class="banner-title">CRM</div>
-        <div class="banner-subtitle" id="bannerSubtitle">Brand & Operations Portal</div>
+    <!-- OUTER BANNER WRAPPER -->
+    <div class="banner-wrapper has-mascot" id="bannerWrapper">
+      <!-- ROUNDED BANNER (CLIPPED SWOOSH) -->
+      <div class="banner-container" id="bannerBox">
+        <div class="banner-content">
+          <div class="banner-title">CRM</div>
+          <div class="banner-subtitle" id="bannerSubtitle">Brand & Operations Portal</div>
+        </div>
       </div>
 
-      <!-- CUTE PEEKING MASCOT WITH PAWS ON BORDER & WAGGEST TAIL -->
+      <!-- CUTE PEEKING MASCOT POSITIONED ON BORDER -->
       <div class="mascot-container" id="mascotBox">
         <svg class="mascot-svg" viewBox="0 0 80 65" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- WAGGING TAIL -->
@@ -947,7 +954,7 @@
           <!-- Head Group (Follows Cursor) -->
           <g class="mascot-head" id="mascotHead">
             <!-- Face Outline (Peeking Up) -->
-            <rect x="16" y="16" width="48" height="42" rx="20" fill="rgba(10, 2, 4, 0.9)" stroke="var(--banner-sub-color)" stroke-width="2.5"/>
+            <rect x="16" y="16" width="48" height="42" rx="20" fill="rgba(10, 2, 4, 0.95)" stroke="var(--banner-sub-color)" stroke-width="2.5"/>
             <!-- Whiskers -->
             <line x1="8" y1="33" x2="18" y2="35" stroke="var(--banner-sub-color)" stroke-width="1.8" stroke-linecap="round"/>
             <line x1="8" y1="39" x2="18" y2="38" stroke="var(--banner-sub-color)" stroke-width="1.8" stroke-linecap="round"/>
@@ -1231,14 +1238,14 @@
     // MASCOT VISIBILITY TOGGLE & AUTOCENTER LOGIC
     function toggleMascotVisibility(show) {
       const mascot = document.getElementById('mascotBox');
-      const bannerBox = document.getElementById('bannerBox');
+      const bannerWrapper = document.getElementById('bannerWrapper');
 
       if (show) {
         mascot.classList.remove('hidden');
-        bannerBox.classList.add('has-mascot');
+        bannerWrapper.classList.add('has-mascot');
       } else {
         mascot.classList.add('hidden');
-        bannerBox.classList.remove('has-mascot');
+        bannerWrapper.classList.remove('has-mascot');
       }
       localStorage.setItem('crm_mascot_enabled', show ? 'true' : 'false');
     }
@@ -1247,7 +1254,7 @@
     const mascotSaved = localStorage.getItem('crm_mascot_enabled');
     if (mascotSaved === 'false') {
       document.getElementById('mascotBox').classList.add('hidden');
-      document.getElementById('bannerBox').classList.remove('has-mascot');
+      document.getElementById('bannerWrapper').classList.remove('has-mascot');
       document.getElementById('mascotToggle').checked = false;
     }
 
