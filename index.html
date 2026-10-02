@@ -32,7 +32,23 @@
       --banner-sub-color: #fca5a5;
     }
 
-    /* THEME 2: AMETHYST PURPLE */
+    /* THEME 2: OBSIDIAN ONYX (PITCH BLACK) */
+    body.theme-black {
+      --bg-main: #000000;
+      --bg-gradient: radial-gradient(circle at 50% 15%, #18181b 0%, #000000 85%);
+      --card-bg: rgba(18, 18, 18, 0.55);
+      --card-border: rgba(255, 255, 255, 0.15);
+      --card-border-hover: #ffffff;
+      --theme-accent: #71717a;
+      --theme-glow: rgba(255, 255, 255, 0.35);
+      --banner-bg: rgba(10, 10, 10, 0.75);
+      --banner-border: #3f3f46;
+      --banner-swoosh-1: rgba(255, 255, 255, 0.12);
+      --banner-swoosh-2: rgba(255, 255, 255, 0.25);
+      --banner-sub-color: #e4e4e7;
+    }
+
+    /* THEME 3: AMETHYST PURPLE */
     body.theme-purple {
       --bg-main: #0c0414;
       --bg-gradient: radial-gradient(circle at 50% 15%, #2a093d 0%, #0c0414 80%);
@@ -48,7 +64,7 @@
       --banner-sub-color: #d8b4fe;
     }
 
-    /* THEME 3: MIDNIGHT SAPPHIRE */
+    /* THEME 4: MIDNIGHT SAPPHIRE */
     body.theme-blue {
       --bg-main: #030a17;
       --bg-gradient: radial-gradient(circle at 50% 15%, #0f254a 0%, #030a17 80%);
@@ -64,7 +80,7 @@
       --banner-sub-color: #93c5fd;
     }
 
-    /* THEME 4: EMERALD SHADOW */
+    /* THEME 5: EMERALD SHADOW */
     body.theme-green {
       --bg-main: #02120a;
       --bg-gradient: radial-gradient(circle at 50% 15%, #09381e 0%, #02120a 80%);
@@ -80,7 +96,7 @@
       --banner-sub-color: #86efac;
     }
 
-    /* THEME 5: IMPERIAL GOLD */
+    /* THEME 6: IMPERIAL GOLD */
     body.theme-gold {
       --bg-main: #140d02;
       --bg-gradient: radial-gradient(circle at 50% 15%, #3d2706 0%, #140d02 80%);
@@ -96,7 +112,7 @@
       --banner-sub-color: #fde047;
     }
 
-    /* THEME 6: ROSE VELVET (MUTED MOODY PINK) */
+    /* THEME 7: ROSE VELVET (MUTED MOODY PINK) */
     body.theme-pink {
       --bg-main: #14050a;
       --bg-gradient: radial-gradient(circle at 50% 15%, #3d0d21 0%, #14050a 80%);
@@ -213,7 +229,7 @@
       transition: color 0.4s ease;
     }
 
-    /* PEEKING MASCOT POSITIONED ON OUTER WRAPPER */
+    /* PEEKING MASCOT WITH GREETING CHAT BUBBLE */
     .mascot-container {
       position: absolute;
       right: 25px;
@@ -222,11 +238,49 @@
       width: 80px;
       height: 65px;
       pointer-events: auto;
+      cursor: pointer;
       transition: opacity 0.3s ease, transform 0.2s ease;
     }
 
     .mascot-container.hidden {
       display: none;
+    }
+
+    /* CHAT BUBBLE ABOVE LUNA */
+    .mascot-bubble {
+      position: absolute;
+      top: -38px;
+      right: 0px;
+      background: rgba(10, 2, 4, 0.88);
+      border: 1px solid var(--banner-sub-color);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: 12px;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6), 0 0 10px var(--theme-glow);
+      backdrop-filter: blur(8px);
+      pointer-events: none;
+      animation: bubbleFloat 3s infinite ease-in-out;
+      transition: all 0.3s ease;
+    }
+
+    .mascot-bubble::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      right: 24px;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid var(--banner-sub-color);
+    }
+
+    @keyframes bubbleFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
     }
 
     .mascot-svg {
@@ -922,6 +976,10 @@
           <span>🍷 Crimson Wine (Default)</span>
           <span class="theme-dot" style="background: #dc2626;"></span>
         </button>
+        <button class="theme-btn" onclick="setTheme('black')">
+          <span>🖤 Obsidian Onyx</span>
+          <span class="theme-dot" style="background: #ffffff; border: 1px solid #71717a;"></span>
+        </button>
         <button class="theme-btn" onclick="setTheme('pink')">
           <span>🌸 Rose Velvet</span>
           <span class="theme-dot" style="background: #f472b6;"></span>
@@ -959,8 +1017,11 @@
         </div>
       </div>
 
-      <!-- CUTE PEEKING MASCOT POSITIONED ON BORDER -->
-      <div class="mascot-container" id="mascotBox">
+      <!-- CUTE PEEKING MASCOT WITH GREETING BUBBLE -->
+      <div class="mascot-container" id="mascotBox" onclick="interactMascot()">
+        <!-- DYNAMIC GREETING CHAT BUBBLE -->
+        <div class="mascot-bubble" id="mascotBubble">Good morning! ☕</div>
+
         <svg class="mascot-svg" viewBox="0 0 80 65" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- WAGGING TAIL -->
           <path class="mascot-tail" d="M 68 52 Q 78 45 74 32 Q 70 25 75 20" stroke="var(--banner-sub-color)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
@@ -1021,7 +1082,7 @@
       <!-- MALTA LIVE TIME & WEATHER & SETTINGS -->
       <div class="status-right-controls">
         <div class="status-item weather-tag" id="maltaWeather">
-          ☀️ 24°C Malta
+          ☀️ 21°C Malta
         </div>
         <div class="status-item">
           <span>Malta: <strong id="maltaClock">00:00:00</strong></span>
@@ -1217,12 +1278,54 @@
   <script>
     let navigationHistory = ['mainView'];
 
-    // LIVE MALTA TIME (Europe/Malta)
+    // LIVE MALTA TIME (Europe/Malta) & DYNAMIC GREETING CALCULATION
     function updateMaltaClock() {
       const now = new Date();
       const options = { timeZone: 'Europe/Malta', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-      document.getElementById('maltaClock').innerText = new Intl.DateTimeFormat([], options).format(now);
+      const maltaTimeStr = new Intl.DateTimeFormat([], options).format(now);
+      document.getElementById('maltaClock').innerText = maltaTimeStr;
+
+      // Extract Malta Hour
+      const hourStr = new Intl.DateTimeFormat([], { timeZone: 'Europe/Malta', hour: 'numeric', hour12: false }).format(now);
+      const hour = parseInt(hourStr, 10);
+      updateMascotGreeting(hour);
     }
+
+    let isInteracted = false;
+    function updateMascotGreeting(hour) {
+      if (isInteracted) return; // Don't overwrite if clicked recently
+      const bubble = document.getElementById('mascotBubble');
+      
+      if (hour >= 5 && hour < 12) {
+        bubble.innerText = "Good morning! ☕";
+      } else if (hour >= 12 && hour < 17) {
+        bubble.innerText = "Good afternoon! 🚀";
+      } else if (hour >= 17 && hour < 22) {
+        bubble.innerText = "Good evening! ✨";
+      } else {
+        bubble.innerText = "Good night! 😴";
+      }
+    }
+
+    function interactMascot() {
+      isInteracted = true;
+      const bubble = document.getElementById('mascotBubble');
+      const phrases = [
+        "Have a great day! 🌟",
+        "Keep crushing it! 💪",
+        "See ya later! 👋",
+        "Purr-fect choices! 🐾",
+        "Ready to work! ⚡"
+      ];
+      const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+      bubble.innerText = randomPhrase;
+
+      setTimeout(() => {
+        isInteracted = false;
+        updateMaltaClock();
+      }, 5000);
+    }
+
     setInterval(updateMaltaClock, 1000);
     updateMaltaClock();
 
